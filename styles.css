@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    background-color: #161210;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    padding: 10% 0;
+}
+
+p, h1 {
+    margin: 0;
+    font-family: 'Inter';
+}
+
+.flex {
+    display: flex;
+}
+
+.stats-bar {
+    flex-direction: row;
+    width: 85%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.money, .hearts, .exp {
+    padding: 20px 25px;
+    background-color: #433833;
+    border-radius: 30px;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.progress-bar-container {
+    height: 4px;
+    width: 100%;
+    background-color: #161210;
+    border-radius: 100px;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 100px;
+}
+
+.stats-bar span {
+    gap: 15px;
+}
+
+.stats-bar p {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.quest-container {
+    flex-direction: column;
+    width: 85%;
+    background-color: #2C2521;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 25px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.quest-title {
+    justify-content: space-between;
+}
+
+.quest-container h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.quest-container p {
+    font-size: 16px;
+    color: white;
+    opacity: .7;
+    font-weight: 400;
+}
+
+.reward {
+    padding: 20px 25px;
+    background-color: #433833;
+    border-radius: 30px;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    display: flex;
+}
+
+.reward-container {
+    gap: 15px;
+    overflow: hidden;
+}
+
+.reward {
+    flex-grow: 1;
+}
+
+.locked-quest {
+    background-color: #2C2521;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 25px;
+    box-sizing: border-box;
+    gap: 15px;
+    width: 85%;
+    justify-content: center;
+}
+
+.quest-complete {
+    display: flex;
+    width: 100%;
+    background-color: #FF8A00;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 15px 0;
+    justify-content: center;
+}
+
+.quest-complete h1 {
+    font-weight: 600;
+    font-family: 'EB Garamond';
+    font-size: 18px;
+}
+
+.navbar {
+    background-color: #433833;
+    border-radius: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 85%;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 40px;
+}
+
+.navbar img {
+    width: auto;
+    height: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.active {
+    background-color: #FF8A00;
+}
+
+.icon {
+    height: 19px;
+    width: auto;
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#flush-key {
+    padding: 15px 25px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: #211C19;
+    color: white;
+    font-family: 'Inter';
+}
+
+.danger-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 85%;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.flush-button {
+    display: flex;
+    width: 100%;
+    background-color: #FF8A00;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 15px 0;
+    justify-content: center;
+}
+
+.flush-button h1 {
+    color: white;
+    font-weight: 600;
+    font-family: 'EB Garamond';
+    font-size: 18px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding-bottom: 35%;
+}
