@@ -5,7 +5,6 @@ body {
     flex-direction: column;
     gap: 25px;
     align-items: center;
-    padding: 10% 0;
 }
 
 p, h1 {
@@ -18,11 +17,14 @@ p, h1 {
 }
 
 .stats-bar {
+    position: fixed;
     flex-direction: row;
-    width: 85%;
+    width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    gap: 20px;
+    z-index: 999;
+    background-color: #161210;
+    padding: 7.5%;
 }
 
 .money, .hearts, .exp {
@@ -30,8 +32,9 @@ p, h1 {
     background-color: #433833;
     border-radius: 30px;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    flex-grow: 1;
+    justify-content: center;
 }
 
 .progress-bar-container {
@@ -109,6 +112,24 @@ p, h1 {
     border-radius: 30px;
     padding: 25px;
     box-sizing: border-box;
+    width: 85%;
+    justify-content: center;
+}
+
+.completed-quest h1 {
+    text-decoration: line-through;
+    color: white;
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+.completed-quest {
+    background-color: #2C2521;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 25px;
+    box-sizing: border-box;
     gap: 15px;
     width: 85%;
     justify-content: center;
@@ -131,6 +152,8 @@ p, h1 {
 }
 
 .navbar {
+    -webkit-box-shadow: 0px 0px 25px 4px rgba(0,0,0,0.2); 
+    box-shadow: 0px 5px 25px 4px rgba(0,0,0,0.2);
     background-color: #433833;
     border-radius: 30px;
     padding: 20px;
@@ -165,6 +188,7 @@ p, h1 {
 
 #flush-key {
     padding: 15px 25px;
+    font-size: 16px;
     border: 1px solid white;
     border-radius: 30px;
     background-color: #211C19;
@@ -204,5 +228,36 @@ p, h1 {
     align-items: center;
     gap: 25px;
     width: 100%;
-    padding-bottom: 35%;
+    padding-bottom: 45%;
+    padding-top: 35%;
+}
+
+.hidden {
+    display: none;
+}
+
+#level-up-animation {
+    width: 65%;
+    height: auto;
+}
+
+.levelup-section {
+    background-color: rgba(0, 0, 0, 0.299);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    -webkit-animation: fadeinout 2812ms linear forwards;
+    animation: fadeinout 2812ms linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    15%,85% { opacity: 1; }
+}
+  
+  @keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    15%,85% { opacity: 1; }
 }
