@@ -98,6 +98,10 @@ function load_vars(){
      firstTime = localStorage.getItem('firstTime') || true;
      gameCompleted = localStorage.getItem('gameCompleted') || false;
      maxExp = 100;
+    // sezione per calcolare la larghezza massima dei soldi
+     const hiddenNumber = document.getElementById('hidden-number');
+     const numberContainer = document.getElementById('number-container');
+     numberContainer.style.width = hiddenNumber.offsetWidth + 'px';
 }
 
 function flushStorage() {
@@ -147,5 +151,5 @@ document.addEventListener("DOMContentLoaded", function() {
     update_html();
     showIntroduction();
     document.body.style.visibility = "visible";
- });
+});
 
