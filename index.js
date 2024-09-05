@@ -130,7 +130,6 @@ function hideIntroduction() {
     var introductionInterval = setInterval(() => {
         if(getComputedStyle(document.getElementById('introduction-text')).opacity > 0) {
             document.getElementById('introduction-text').style.opacity = getComputedStyle(document.getElementById('introduction-text')).opacity - 0.01;
-            console.log(getComputedStyle(document.getElementById('introduction-text')).opacity);
         } else {
             clearInterval(introductionInterval);
                 document.getElementById('introduction-text').classList.remove('flex');
