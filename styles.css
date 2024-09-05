@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     gap: 25px;
     align-items: center;
+    visibility:hidden;
 }
 
 * {

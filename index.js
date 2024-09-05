@@ -138,12 +138,14 @@ function hideIntroduction() {
     }, 1);
     localStorage.setItem('introductionHidden', true);
 }
-
 var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
-load_vars()
-if(!firstTime){window.location.href = "home.html";}
-display_log("post-dichiarazione-variabili")
-update_html();
-showIntroduction();
 
-  
+document.addEventListener("DOMContentLoaded", function() {
+    load_vars()
+    if(!firstTime){window.location.href = "home.html";}
+    display_log("post-dichiarazione-variabili")
+    update_html();
+    showIntroduction();
+    document.body.style.visibility = "visible";
+ });
+
