@@ -254,6 +254,7 @@ p, h1 {
     justify-content: center;
     position: fixed;
     z-index: 1000;
+    object-fit: cover;
     -webkit-animation: fadeinout 2812ms linear forwards;
     animation: fadeinout 2812ms linear forwards;
 }
