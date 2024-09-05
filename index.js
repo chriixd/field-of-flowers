@@ -114,8 +114,37 @@ function startGame() {
     window.location.href = "home.html";
 }
 
+function showIntroduction() {
+    if(document.title == 'Home') {
+        if(localStorage.getItem('introductionHidden')) {
+            document.getElementById('introduction-text').classList.add('hidden');
+            document.getElementById('introduction-text').classList.remove('flex');
+        } else {
+            document.getElementById('introduction-text').classList.remove('hidden');
+            document.getElementById('introduction-text').classList.add('flex');
+        }
+    }
+}
+
+function hideIntroduction() {
+    var introductionInterval = setInterval(() => {
+        if(getComputedStyle(document.getElementById('introduction-text')).opacity > 0) {
+            document.getElementById('introduction-text').style.opacity = getComputedStyle(document.getElementById('introduction-text')).opacity - 0.01;
+            console.log(getComputedStyle(document.getElementById('introduction-text')).opacity);
+        } else {
+            clearInterval(introductionInterval);
+                document.getElementById('introduction-text').classList.remove('flex');
+                document.getElementById('introduction-text').classList.add('hidden');
+        }
+    }, 1);
+    localStorage.setItem('introductionHidden', true);
+}
+
 var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
 load_vars()
 if(!firstTime){window.location.href = "home.html";}
 display_log("post-dichiarazione-variabili")
 update_html();
+showIntroduction();
+
+  

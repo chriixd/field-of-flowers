@@ -1,7 +1,7 @@
     quests = [
       {
-        "title": "Quest di Flosa",
-        "desc": "Descrizione quest di Flosa",
+        "title": "Un Inizio Improbabile",
+        "desc": "Per iniziare dovrai dirigerti laddove normalmente andresti per procurarti del cibo per il tuo fidato compagno Zagor e lì troverai i primi alleati… o che siano solamente dei farabutti?",
         "exp": 50,
         "coins": 100,
         "progress": 1
