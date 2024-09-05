@@ -45,6 +45,12 @@ function update_html(levelUp = false) {
                     document.getElementsByClassName('locked-quest')[index].classList.add('hidden');
                 }
             });
+            if(gameCompleted) {
+                document.getElementById('quest-container').classList.add('hidden');
+                document.getElementById('quest-container').classList.remove('flex');
+                document.getElementById('last-completed-quest').classList.remove('hidden');
+                document.getElementById('last-completed-quest').classList.add('flex');
+            }
         }
         if(levelUp) {
             document.getElementById('level-up-section').classList.add('flex');
@@ -58,12 +64,6 @@ function update_html(levelUp = false) {
         document.getElementById('money-amount').innerHTML = moneyCount;
         document.getElementById('exp-level').innerHTML = Math.floor(expCount / maxExp) + 1;
         document.getElementById('exp-progress').style.width = (((expCount %maxExp) / maxExp) * 100) + '%';
-        if(gameCompleted) {
-            document.getElementById('quest-container').classList.add('hidden');
-            document.getElementById('quest-container').classList.remove('flex');
-            document.getElementById('last-completed-quest').classList.remove('hidden');
-            document.getElementById('last-completed-quest').classList.add('flex');
-        }
     }
 
 }
@@ -94,10 +94,14 @@ function load_vars(){
      gameProgress = parseInt(localStorage.getItem('gameProgress'))  || 0;
      currentProgress = parseInt(localStorage.getItem('quest-progress'))  || 0;
      expCount = parseInt(localStorage.getItem('expCount')) || 0;
-     moneyCount = parseInt(localStorage.getItem('moneyCount')) || 100;
-     firstTime = localStorage.getItem('firstTime') || true;
-     gameCompleted = localStorage.getItem('gameCompleted') || false;
-     maxExp = 100;
+    if(document.getElementById('money-amount').innerHTML == '1010' && !localStorage.getItem('isWidthSet')) {
+        localStorage.setItem('money-container-width', parseInt(getComputedStyle(document.getElementById('money-container')).width.slice(0, -2)))
+        localStorage.setItem('isWidthSet', true);
+    }
+    moneyCount = parseInt(localStorage.getItem('moneyCount')) || 100;
+    firstTime = localStorage.getItem('firstTime') || true;
+    gameCompleted = localStorage.getItem('gameCompleted') || false;
+    maxExp = 100;
 }
 
 function flushStorage() {
@@ -126,6 +130,13 @@ function showIntroduction() {
     }
 }
 
+function setWidth() {
+    if(localStorage.getItem('isWidthSet')) {
+        console.log(localStorage.getItem('money-container-width'));
+        document.getElementById('money-container').style.width = localStorage.getItem('money-container-width') + 'px';
+    }
+}
+
 function hideIntroduction() {
     var introductionInterval = setInterval(() => {
         if(getComputedStyle(document.getElementById('introduction-text')).opacity > 0) {
@@ -138,6 +149,7 @@ function hideIntroduction() {
     }, 1);
     localStorage.setItem('introductionHidden', true);
 }
+
 var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -145,7 +157,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if(!firstTime){window.location.href = "../../pages/home.html";}
     display_log("post-dichiarazione-variabili")
     update_html();
+    try {
+        setWidth();
+    } catch (error) {
+        
+    }
     showIntroduction();
     document.body.style.visibility = "visible";
- });
+});
 
