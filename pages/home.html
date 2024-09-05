@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../Assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../Assets/js/vars.js"></script>
+    <script src="../Assets/js/index.js"></script>     
+</head>
+<body>
+    <div class="introduction-text hidden" id="introduction-text" onclick="hideIntroduction()">
+        <p>Benvenuta nel Campo dei Fiori! In questo luogo vi è un antico forziere dimenticato, in attesa di essere scoperto… </p>
+    </div>
+    <div id="level-up-section" class="levelup-section hidden">
+        <video id="level-up-animation" playsinline webkit-playsinline  >
+            <source src="../Assets/video/level-up-animation.webm"  type="video/webm">
+        </video>
+    </div>
+    <div class="container stats-bar flex">
+        <div class="container flex money">
+            <span class="flex">
+                <img class="icon" src="../Assets/img/icons/coin.png" alt="">
+                <p id="money-amount">0</p>
+            </span>
+        </div>
+        <div class="container flex hearts">
+            <span class="flex">
+                <img class="icon" src="../Assets/img/icons/heart.png" alt="">
+                <p id="lives-left">3</p>
+            </span>
+        </div>
+        <div class="container flex exp">
+            <span class="flex">
+                <img class="icon" src="../Assets/img/icons/exp.png" alt="">
+                <p id="exp-level">00</p>
+            </span>
+            <div class="progress-bar-container">
+                <div style="width: 35%; background-color: #2CD4EB;" class="progress" id="exp-progress"></div> <!-- Input progress percentage & bar color in inline style attr -->
+            </div>      
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div class="quest completed-quest container hidden">
+            <h1>Palle di Flosa</h1>
+        </div>
+        <div id="last-completed-quest" class="quest completed-quest container hidden">
+            <h1>Quest di Jessica</h1>
+        </div>
+        <div id="quest-container" class="container quest-container flex">
+            <div class="quest-title flex">
+                <h1 id="quest-name">quest-name</h1>
+                <h1><span id="quest-progress">0</span>/<span id="quest-max-progress">00</span></h1>
+            </div>
+            <p id="quest-description" class="quest-description">
+                quest-description-paragraph
+            </p>
+            <div class="reward-container flex">
+                <div class="reward">
+                    <img class="icon" src="../Assets/img/icons/coin.png" alt="">
+                    <h1 id="reward-coins">+00</h1>
+                </div>
+                <div class="reward">
+                    <img class="icon" src="../Assets/img/icons/exp.png" alt="">
+                    <h1 id="reward-exp">+00</h1>
+                </div>
+            </div>
+            <div class="quest-complete" onclick="addProgress()">
+                <h1>Completato</h1>
+            </div>
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+        <div class="quest locked-quest container flex">
+            <img src="../Assets/img/icons/lock.png" alt="">
+        </div>
+    </div>
+    <div class="navbar container flex">
+        <a href="home.html"><img class="active" src="../Assets/img/icons/home.png" alt=""></a>
+        <a href="party.html"><img src="../Assets/img/icons/party.png" alt=""></a>
+        <a href="shop.html"><img src="../Assets/img/icons/shop.png" alt=""></a>
+        <a href="settings.html"><img src="../Assets/img/icons/cog.png" alt=""></a>
+    </div>
+</body>
+
+</html>
