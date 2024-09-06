@@ -33,6 +33,10 @@ function update_html(levelUp = false) {
                 document.getElementById('introduction-text').classList.remove('hidden');
                 document.getElementById('introduction-text').classList.add('flex');
             }
+            if(document.getElementById('money-amount').innerHTML == '1010' && !localStorage.getItem('isWidthSet')) {
+                localStorage.setItem('money-container-width', parseInt(getComputedStyle(document.getElementById('money-container')).width.slice(0, -2)))
+                localStorage.setItem('isWidthSet', true);
+            }
                 document.getElementById('quest-name').innerHTML = quests[gameProgress].title;
                 document.getElementById('quest-description').innerHTML = quests[gameProgress].desc;
                 document.getElementById('reward-coins').innerHTML = '+' + quests[gameProgress].coins;
@@ -101,15 +105,11 @@ function load_vars(){
      gameProgress = parseInt(localStorage.getItem('gameProgress'))  || 0;
      currentProgress = parseInt(localStorage.getItem('quest-progress'))  || 0;
      expCount = parseInt(localStorage.getItem('expCount')) || 0;
-    if(document.getElementById('money-amount').innerHTML == '1010' && !localStorage.getItem('isWidthSet')) {
-        localStorage.setItem('money-container-width', parseInt(getComputedStyle(document.getElementById('money-container')).width.slice(0, -2)))
-        localStorage.setItem('isWidthSet', true);
-    }
-    moneyCount = parseInt(localStorage.getItem('moneyCount')) || 100;
-    firstTime = localStorage.getItem('firstTime') || true;
-    gameCompleted = localStorage.getItem('gameCompleted') || false;
-    maxExp = 100;
-}
+     moneyCount = parseInt(localStorage.getItem('moneyCount')) || 100;
+     firstTime = localStorage.getItem('firstTime') || true;
+     gameCompleted = localStorage.getItem('gameCompleted') || false;
+     maxExp = 100;
+} 
 
 function flushStorage() {
     if(document.getElementById('flush-key').value == 'reset') {
