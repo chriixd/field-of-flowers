@@ -33,10 +33,6 @@ function update_html(levelUp = false) {
                 document.getElementById('introduction-text').classList.remove('hidden');
                 document.getElementById('introduction-text').classList.add('flex');
             }
-            if(document.getElementById('money-amount').innerHTML == '1010' && !localStorage.getItem('isWidthSet')) {
-                localStorage.setItem('money-container-width', parseInt(getComputedStyle(document.getElementById('money-container')).width.slice(0, -2)))
-                localStorage.setItem('isWidthSet', true);
-            }
                 document.getElementById('quest-name').innerHTML = quests[gameProgress].title;
                 document.getElementById('quest-description').innerHTML = quests[gameProgress].desc;
                 document.getElementById('reward-coins').innerHTML = '+' + quests[gameProgress].coins;
@@ -75,6 +71,10 @@ function update_html(levelUp = false) {
         document.getElementById('money-amount').innerHTML = moneyCount;
         document.getElementById('exp-level').innerHTML = Math.floor(expCount / maxExp) + 1;
         document.getElementById('exp-progress').style.width = (((expCount %maxExp) / maxExp) * 100) + '%';
+        if(document.getElementById('money-amount').innerHTML == '1010' && !localStorage.getItem('isWidthSet')) {
+            localStorage.setItem('money-container-width', parseInt(getComputedStyle(document.getElementById('money-container')).width.slice(0, -2)))
+            localStorage.setItem('isWidthSet', true);
+        }
     }
 
 }
