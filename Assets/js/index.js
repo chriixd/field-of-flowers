@@ -49,11 +49,12 @@ async function update_html(levelUp = false) {
             // aggiornamento visualizzazione html
             Array.from(document.getElementsByClassName('quest-container')).forEach((element, index, arr) => {
                 if(index < gameProgress ) {
-                    document.getElementsByClassName('quest-body')[index].classList.add("reduced")
+                    document.getElementsByClassName('quest-body')[index].classList.add("reduced");
+                    document.getElementsByClassName('quest-body')[index].classList.add("completed");
                 }else if(index == gameProgress){
 
                     if(localStorage.getItem("new-quest")=='true'){
-                        document.getElementsByClassName('quest-body')[index - 1].classList.add('reduced')
+                        document.getElementsByClassName('quest-body')[index - 1].classList.add('reduced');
                         show_quest_animation(gameProgress+1);
                         localStorage.setItem("new-quest",false);
                     }

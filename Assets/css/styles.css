@@ -256,6 +256,13 @@ p, h1 {
     height: 0px;
 }
 
+div.completed div.quest-complete{
+    background-color:grey;
+    pointer-events: none;
+}
+.reward h1{
+    text-decoration:line-through;
+}
 #level-up-animation {
     width: 65%;
     height: auto;
