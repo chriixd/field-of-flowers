@@ -26,6 +26,13 @@ function addProgress() {
 function update_html(levelUp = false) {
     if(document.title != 'Title Screen') {
         if (document.title == 'Home' && gameProgress < 8) {
+            if(localStorage.getItem('introductionHidden')) {
+                document.getElementById('introduction-text').classList.add('hidden');
+                document.getElementById('introduction-text').classList.remove('flex');
+            } else {
+                document.getElementById('introduction-text').classList.remove('hidden');
+                document.getElementById('introduction-text').classList.add('flex');
+            }
                 document.getElementById('quest-name').innerHTML = quests[gameProgress].title;
                 document.getElementById('quest-description').innerHTML = quests[gameProgress].desc;
                 document.getElementById('reward-coins').innerHTML = '+' + quests[gameProgress].coins;
@@ -45,6 +52,12 @@ function update_html(levelUp = false) {
                     document.getElementsByClassName('locked-quest')[index].classList.add('hidden');
                 }
             });
+            if(gameCompleted) {
+                document.getElementById('quest-container').classList.add('hidden');
+                document.getElementById('quest-container').classList.remove('flex');
+                document.getElementById('last-completed-quest').classList.remove('hidden');
+                document.getElementById('last-completed-quest').classList.add('flex');
+            }
         }
         if(levelUp) {
             document.getElementById('level-up-section').classList.add('flex');
@@ -58,12 +71,7 @@ function update_html(levelUp = false) {
         document.getElementById('money-amount').innerHTML = moneyCount;
         document.getElementById('exp-level').innerHTML = Math.floor(expCount / maxExp) + 1;
         document.getElementById('exp-progress').style.width = (((expCount %maxExp) / maxExp) * 100) + '%';
-        if(gameCompleted) {
-            document.getElementById('quest-container').classList.add('hidden');
-            document.getElementById('quest-container').classList.remove('flex');
-            document.getElementById('last-completed-quest').classList.remove('hidden');
-            document.getElementById('last-completed-quest').classList.add('flex');
-        }
+
     }
 
 }
@@ -101,7 +109,7 @@ function load_vars(){
 }
 
 function flushStorage() {
-    if(document.getElementById('flush-key').value == 'peneduro') {
+    if(document.getElementById('flush-key').value == 'reset') {
         localStorage.clear();
         document.getElementById('flush-key').value = '';
         console.log("Storage Flushed")
@@ -116,13 +124,7 @@ function startGame() {
 
 function showIntroduction() {
     if(document.title == 'Home') {
-        if(localStorage.getItem('introductionHidden')) {
-            document.getElementById('introduction-text').classList.add('hidden');
-            document.getElementById('introduction-text').classList.remove('flex');
-        } else {
-            document.getElementById('introduction-text').classList.remove('hidden');
-            document.getElementById('introduction-text').classList.add('flex');
-        }
+
     }
 }
 
