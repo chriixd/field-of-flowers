@@ -155,7 +155,7 @@ var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
 
 document.addEventListener("DOMContentLoaded", function() {
     load_vars()
-    if(!firstTime){window.location.href = "../../pages/home.html";}
+    if(!firstTime){window.location.href = "./home.html";}
     display_log("post-dichiarazione-variabili")
     update_html();
     try {
