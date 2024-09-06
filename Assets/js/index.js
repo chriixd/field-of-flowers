@@ -116,13 +116,13 @@ function flushStorage() {
         localStorage.clear();
         document.getElementById('flush-key').value = '';
         console.log("Storage Flushed")
-        window.location.href = "../../index.html";
+        window.location.href = "./index.html";
     }
 }
 
 function startGame() {
     localStorage.setItem('firstTime', false);
-    window.location.href = "../../pages/home.html";
+    window.location.href = "./home.html";
 }
 
 function showIntroduction() {
