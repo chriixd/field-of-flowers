@@ -1,4 +1,4 @@
-    quests = [
+    const quests = [
       {
         "title": "Un Inizio Improbabile",
         "desc": "Per iniziare dovrai dirigerti laddove normalmente andresti per procurarti del cibo per il tuo fidato compagno Zagor e lì troverai i primi alleati… o che siano solamente dei farabutti?",
@@ -57,3 +57,4 @@
       }
     ]
 
+const lock_quest_html ='<div class="quest locked-quest container flex">\n<img class="lock-img" src="Assets/img/icons/lock.png" alt="">\n </div>'

@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">  
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">    
+        <script src="Assets/js/animations.js"></script>
         <script src="Assets/js/vars.js"></script>
         <script src="Assets/js/index.js"></script> 
     </head>
@@ -45,72 +46,201 @@
             </div>
         </div>
         <div class="wrapper">
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div class="quest completed-quest container hidden">
-                <h1>Palle di Flosa</h1>
-            </div>
-            <div id="last-completed-quest" class="quest completed-quest container hidden">
-                <h1>Quest di Jessica</h1>
-            </div>
-            <div id="quest-container" class="container quest-container flex">
-                <div class="quest-title flex">
-                    <h1 id="quest-name">quest-name</h1>
-                    <h1><span id="quest-progress">0</span>/<span id="quest-max-progress">00</span></h1>
-                </div>
-                <p id="quest-description" class="quest-description">
-                    quest-description-paragraph
-                </p>
-                <div class="reward-container flex">
-                    <div class="reward">
-                        <img class="icon" src="Assets/img/icons/coin.png" alt="">
-                        <h1 id="reward-coins">+00</h1>
-                    </div>
-                    <div class="reward">
-                        <img class="icon" src="Assets/img/icons/exp.png" alt="">
-                        <h1 id="reward-exp">+00</h1>
+            <div id="quests-container">
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
                     </div>
                 </div>
-                <div class="quest-complete" onclick="addProgress()">
-                    <h1>Completato</h1>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-container" class="container quest-container flex">
+                    <div class="quest-title flex">
+                        <h1 class="quest-name">quest-name</h1>
+                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
+                        </div>
+                        <div class="quest-body">
+                        <p class="quest-description" class="quest-description">
+                            quest-description-paragraph
+                        </p>
+                        <div class="reward-container flex">
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
+                                <h1 class="reward-coins">+00</h1>
+                            </div>
+                            <div class="reward">
+                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
+                                <h1 class="reward-exp">+00</h1>
+                            </div>
+                        </div>
+                        <div class="quest-complete" onclick="addProgress()">
+                            <h1>Completato</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
-            </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
-            </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
-            </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
-            </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
-            </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
-            </div>
-            <div class="quest locked-quest container flex">
-                <img src="Assets/img/icons/lock.png" alt="">
+            <div id="locked-quests-container">
             </div>
         </div>
         <div class="navbar container flex">

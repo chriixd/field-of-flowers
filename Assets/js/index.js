@@ -6,6 +6,7 @@ function addProgress() {
         expCount += quests[gameProgress].exp;
         moneyCount += quests[gameProgress].coins;
         currentProgress = 0;
+        localStorage.setItem("new-quest",true)
         gameProgress++;
         if(gameProgress == 8) {
             isLastQuest = true;
@@ -23,9 +24,12 @@ function addProgress() {
     update_html(Math.floor(expCount / maxExp) != Math.floor(lastExp / maxExp));
 }
 
-function update_html(levelUp = false) {
+async function update_html(levelUp = false) {
     if(document.title != 'Title Screen') {
         if (document.title == 'Home' && gameProgress < 8) {
+            if(localStorage.getItem("new-quest")=='true'){
+                await hide_quest_animation(gameProgress);
+            }
             if(localStorage.getItem('introductionHidden')) {
                 document.getElementById('introduction-text').classList.add('hidden');
                 document.getElementById('introduction-text').classList.remove('flex');
@@ -33,40 +37,45 @@ function update_html(levelUp = false) {
                 document.getElementById('introduction-text').classList.remove('hidden');
                 document.getElementById('introduction-text').classList.add('flex');
             }
-                document.getElementById('quest-name').innerHTML = quests[gameProgress].title;
-                document.getElementById('quest-description').innerHTML = quests[gameProgress].desc;
-                document.getElementById('reward-coins').innerHTML = '+' + quests[gameProgress].coins;
-                document.getElementById('reward-exp').innerHTML = '+' + quests[gameProgress].exp;
-                document.getElementById('quest-max-progress').innerHTML = quests[gameProgress].progress;
-                document.getElementById('quest-progress').innerHTML = currentProgress;
-            Array.from(document.getElementsByClassName('completed-quest')).forEach((element, index, arr) => {
+            //aggiornamento contenuto
+            for(let load_index=0;load_index<Array.from(quests).length;load_index++){
+                document.getElementsByClassName('quest-name')[load_index].innerHTML = quests[load_index].title;
+                document.getElementsByClassName('quest-description')[load_index].innerHTML = quests[load_index].desc;
+                document.getElementsByClassName('reward-coins')[load_index].innerHTML = '+' + quests[load_index].coins;
+                document.getElementsByClassName('reward-exp')[load_index].innerHTML = '+' + quests[load_index].exp;
+                document.getElementsByClassName('quest-max-progress')[load_index].innerHTML = quests[load_index].progress;
+                document.getElementsByClassName('quest-progress')[load_index].innerHTML = (load_index < gameProgress ) ? quests[load_index].progress : currentProgress;
+            }
+            // aggiornamento visualizzazione html
+            Array.from(document.getElementsByClassName('quest-container')).forEach((element, index, arr) => {
                 if(index < gameProgress ) {
-                    document.getElementsByClassName('completed-quest')[index].classList.add('flex');
-                    document.getElementsByClassName('completed-quest')[index].classList.remove('hidden');
-                    document.getElementsByClassName('completed-quest')[index].getElementsByTagName('h1')[0].textContent = quests[index].title;
+                    document.getElementsByClassName('quest-body')[index].classList.add("reduced")
+                }else if(index == gameProgress){
+
+                    if(localStorage.getItem("new-quest")=='true'){
+                        document.getElementsByClassName('quest-body')[index - 1].classList.add('reduced')
+                        show_quest_animation(gameProgress+1);
+                        localStorage.setItem("new-quest",false);
+                    }
+                    document.getElementsByClassName('quest-container')[index].classList.remove('hidden');
+                    document.getElementById("locked-quests-container").innerHTML = ""
+                }else{
+                    document.getElementsByClassName('quest-container')[index].classList.add('hidden');
+                    document.getElementsByClassName('quest-container')[index].classList.remove('flex');
+                    document.getElementById("locked-quests-container").innerHTML+= lock_quest_html;
                 }
             });
-            Array.from(document.getElementsByClassName('locked-quest')).forEach((element, index, arr) => {
-                if (index < gameProgress) {
-                    document.getElementsByClassName('locked-quest')[index].classList.remove('flex');
-                    document.getElementsByClassName('locked-quest')[index].classList.add('hidden');
-                }
-            });
+            
             if(gameCompleted) {
                 document.getElementById('quest-container').classList.add('hidden');
                 document.getElementById('quest-container').classList.remove('flex');
                 document.getElementById('last-completed-quest').classList.remove('hidden');
                 document.getElementById('last-completed-quest').classList.add('flex');
             }
+ 
         }
         if(levelUp) {
-            document.getElementById('level-up-section').classList.add('flex');
-            document.getElementById('level-up-section').classList.remove('hidden');
-            document.getElementById('level-up-animation').play();
-            setTimeout(() => {
-                document.getElementById('level-up-section').classList.remove('flex');
-                document.getElementById('level-up-section').classList.add('hidden');
-            }, 2812);
+            levelUp_animation()
         }
         document.getElementById('money-amount').innerHTML = moneyCount;
         document.getElementById('exp-level').innerHTML = Math.floor(expCount / maxExp) + 1;
