@@ -28,7 +28,7 @@ async function update_html(levelUp = false) {
     if(document.title != 'Title Screen') {
         if (document.title == 'Home' && gameProgress < 8) {
             if(localStorage.getItem("new-quest")=='true'){
-                await hide_quest_animation(gameProgress);
+                await hide_quest_animation(gameProgress,true);
             }
             if(localStorage.getItem('introductionHidden')) {
                 document.getElementById('introduction-text').classList.add('hidden');
@@ -159,7 +159,17 @@ function hideIntroduction() {
     }, 1);
     localStorage.setItem('introductionHidden', true);
 }
-
+function toggleQuest(element){
+    const quest_container_array = document.querySelectorAll('.quest-container');
+    const index = Array.from(quest_container_array).indexOf(element) +1;
+    if(element.getElementsByClassName("quest-body")[0].classList.contains("reduced")){
+            show_quest_animation(index);
+            element.getElementsByClassName("quest-body")[0].classList.remove('reduced')
+    }else{
+            hide_quest_animation(index);
+            element.getElementsByClassName("quest-body")[0].classList.add('reduced');
+    }
+}
 var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
 
 document.addEventListener("DOMContentLoaded", function() {

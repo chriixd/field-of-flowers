@@ -1,12 +1,25 @@
-function hide_quest_animation(index){
+function hide_quest_animation(index,lockanimation = false){
     return new Promise((resolve)=>{
         let h = parseInt(getComputedStyle(document.getElementsByClassName('quest-body')[index-1]).height);
-        let o = parseFloat(getComputedStyle(document.getElementsByClassName('quest-body')[index-1]).opacity);
+        let oqb = parseFloat(getComputedStyle(document.getElementsByClassName('quest-body')[index-1]).opacity);
+        let ol =  parseFloat(getComputedStyle(document.getElementsByClassName('lock-img')[0]).opacity);
         console.log(document.getElementsByClassName('quest-body')[index-1].clientHeight)
+       if(lockanimation){
+            let opacity_lock_quest_animation = setInterval(() => {
+                if(ol>0){
+                    ol-=0.05
+                    document.getElementsByClassName('lock-img')[0].style.opacity = ol;
+                }else{
+                    clearInterval(opacity_lock_quest_animation)
+                }
+            }, 30);
+        }
         let opacity_quest_animation = setInterval(() => {
-            if(o>0){
-                o-=0.05
-                document.getElementsByClassName('quest-body')[index-1].style.opacity = o;
+            if(oqb>0){
+                oqb-=0.05
+                document.getElementsByClassName('quest-body')[index-1].style.opacity = oqb;
+            }else{
+                clearInterval(opacity_quest_animation)
             }
         }, 50);
         let height_quest_animation = setInterval(() => {
@@ -32,6 +45,8 @@ function show_quest_animation(index){
             if(o<1){
                 o+=0.05
                 document.getElementsByClassName('quest-body')[index-1].style.opacity = o;
+            }else{
+                clearInterval(opacity_quest_animation)
             }
         }, 50);
         let complete_quest_animation = setInterval(() => {
