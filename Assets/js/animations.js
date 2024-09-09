@@ -9,10 +9,23 @@ function levelUp_animation(){
     }, 2812);
 }
 async function completed_quest_animation(index){
-    // hide_quest_animation(index-1);
-    // await hide_next_lock_animation()
-    // document.getElementsByClassName('quest-container')[index].classList.remove('hidden');
-    // document.getElementsByClassName('locked-quest')[0].classList.add('hidden');
-    // show_quest_animation(index)
+    setTimeout(() => {
+        document.getElementsByClassName("quest-body")[index -1].classList.add('reduced');
 
+        document.getElementsByClassName("quest-container")[index].classList.remove('hidden');
+        setTimeout(()=>{
+            document.getElementsByClassName("quest-container")[index].classList.remove('op0');
+        },10);
+        document.getElementsByClassName("locked-quest")[0].remove()
+        setTimeout(() => {
+            
+            document.getElementsByClassName('quest-body')[index -1].classList.add("completed");
+            document.getElementsByClassName("quest-body")[index].classList.remove('reduced');
+            localStorage.setItem("new-quest",false);
+        }, 500);
+    }, 1000);
+
+}
+async function end_game_animation(){
+    
 }

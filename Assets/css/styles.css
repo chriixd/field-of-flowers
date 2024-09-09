@@ -74,7 +74,7 @@ p, h1 {
     padding: 25px;
     margin: 0 0 20px 0;
     opacity: 1;
-    transition: opacity 1s linear;
+    transition: opacity 0.5s linear;
 
 
 }
@@ -91,7 +91,7 @@ p, h1 {
     transition: max-height 1.2s ease-in-out;
 }
  .op0{
-    opacity: 0;
+    opacity: 0 !important;
 }
 .quest-container h1 {
     font-size: 18px;
@@ -334,6 +334,8 @@ div.completed div.quest-complete{
     align-items: center;
     position: fixed;
     z-index: 1000;
+    transition: opacity 1s linear;
+    opacity: 1;
 }
 
 .introduction-text p {
@@ -342,4 +344,14 @@ div.completed div.quest-complete{
     font-size: 16px;
     width: 85%;
     text-align: center;
+}
+#title-page-body{
+    background-image: url(../img/icons/titlescreen.png); 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 85vh;
+    margin: 0;
 }
