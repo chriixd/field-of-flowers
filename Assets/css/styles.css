@@ -72,23 +72,39 @@ p, h1 {
     border: 1px solid white;
     border-radius: 30px;
     padding: 25px;
-    gap: 20px;
     margin: 0 0 20px 0;
-}
+    opacity: 1;
+    transition: opacity 1s linear;
 
+
+}
+.quest-description{
+    margin-bottom: 20px;
+}
 .quest-title {
+
     justify-content: space-between;
+    padding: 10px 0;
 }
 .quest-body{
     overflow: hidden;
+    transition: max-height 1.2s ease-in-out;
+}
+ .op0{
+    opacity: 0;
 }
 .quest-container h1 {
     font-size: 18px;
     font-weight: 600;
     color: white;
 }
+.no-animation  * {
+    animation: none !important;
+    transition: none !important;
+}
 
 .quest-container p {
+    text-align: left;
     font-size: 16px;
     color: white;
     opacity: .7;
@@ -109,6 +125,7 @@ p, h1 {
     gap: 15px;
     overflow: hidden;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .reward {
@@ -126,6 +143,8 @@ p, h1 {
     width: 100%;
     justify-content: center;
     margin: 0 0 20px 0;
+    opacity: 1;
+    transition: fadeinout 1s linear; 
 }
 
 .completed-quest h1 {
@@ -150,6 +169,7 @@ p, h1 {
     padding: 25px 25px 0 25px;
     width: 100%;
     box-sizing: border-box;
+    text-align: -webkit-center;
     
 }
 .quest-complete {
@@ -248,19 +268,22 @@ p, h1 {
     padding-bottom: 45%;
     padding-top: 35%;
 }
-
+.lock-img{
+    opacity: 1;
+    transition: opacity 1s linear;
+}
 .hidden {
     display: none;
 }
 .reduced{
-    height: 0px;
+    max-height: 0px !important;
 }
 
 div.completed div.quest-complete{
     background-color:grey;
     pointer-events: none;
 }
-.reward h1{
+.completed-quest > h1.reward{
     text-decoration:line-through;
 }
 #level-up-animation {
