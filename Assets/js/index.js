@@ -1,6 +1,6 @@
 function addProgress() {
    lastExp = expCount;
-    if(currentProgress < quests[gameProgress].progress) {
+    if(currentProgress < quests[gameProgress].progress.length) {
         currentProgress++        
     } else{
         expCount += quests[gameProgress].exp;
@@ -9,8 +9,7 @@ function addProgress() {
         localStorage.setItem("new-quest",true)
         gameProgress++;
     }
-    save_data();
-    update_html(Math.floor(expCount / maxExp) != Math.floor(lastExp / maxExp),gameProgress == quests.length );
+    return {levelup : Math.floor(expCount/maxExp) != Math.floor((expCount - quests[gameProgress-1].exp)/maxExp),end:gameProgress == quests.length }
 }
 function load_html(){
     if (document.title == 'Home'){
@@ -21,10 +20,10 @@ function load_html(){
             document.getElementsByClassName('quest-description')[load_index].innerHTML = quests[load_index].desc;
             document.getElementsByClassName('reward-coins')[load_index].innerHTML = '+' + quests[load_index].coins;
             document.getElementsByClassName('reward-exp')[load_index].innerHTML = '+' + quests[load_index].exp;
-            document.getElementsByClassName('quest-max-progress')[load_index].innerHTML = quests[load_index].progress;
-            document.getElementsByClassName('quest-body')[load_index].style.maxHeight = document.getElementsByClassName('quest-body')[load_index].scrollHeight+20+"px";
+            document.getElementsByClassName('quest-max-progress')[load_index].innerHTML = quests[load_index].progress.length;
+            document.getElementsByClassName('quest-body')[load_index].style.maxHeight = document.getElementsByClassName('quest-body')[load_index].scrollHeight+"px";
             //  gestione visiblità quest pre-animazione
-            document.getElementsByClassName('quest-progress')[load_index].innerHTML = (load_index < gameProgress ) ? quests[load_index].progress : currentProgress;
+            document.getElementsByClassName('quest-progress')[load_index].innerHTML = (load_index < gameProgress ) ? quests[load_index].progress.length : currentProgress;
             if(load_index < gameProgress){
                 document.getElementsByClassName('quest-body')[load_index].classList.add("completed");
                 document.getElementsByClassName('quest-body')[load_index].classList.add("reduced");
@@ -64,7 +63,6 @@ async function update_html(levelUp = false,end = false) {
                 document.getElementById('introduction-text').classList.add('hidden');
             },1000);
         }
-        
             if(localStorage.getItem("new-quest")=='true'){completed_quest_animation(gameProgress);}
             if(levelUp) {levelUp_animation();}
         }
@@ -131,13 +129,36 @@ function setWidth() {
     }
 }
 
-function toggleQuest(element){
-  
-    element.parentElement.getElementsByClassName("quest-body")[0].classList.toggle('reduced');
-}
 var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
-
 document.addEventListener("DOMContentLoaded", function() {
+    if(document.title=="Home"){
+        document.getElementById("hidden-popup-box").addEventListener('click', (e)=> {
+            if (e.target === document.getElementById("hidden-popup-box")) {
+                hide_popup_box();
+            }
+        });
+        document.querySelectorAll(".quest-complete").forEach(element=>{
+                element.addEventListener('click',(ev)=>{
+                        show_popup_box("Inserisci il codice",quests[gameProgress].progress[currentProgress].task,true);
+                });
+        });
+        document.querySelectorAll(".code-button").forEach(element=>{
+            element.addEventListener('click',(ev)=>{
+                if(quests[gameProgress].progress[currentProgress] == document.querySelector(".box-textbox").value){
+                    let update = addProgress();
+                    update_html(update.levelup,update.end);
+                    save_data();
+                }
+            });
+        });
+        document.querySelectorAll(".quest-title").forEach(element=>{
+            element.addEventListener('click',(ev)=>{
+                console.log( ev.target.closest(".quest-container").getElementsByClassName("quest-body"))
+                ev.target.closest(".quest-container").getElementsByClassName("quest-body")[0].classList.toggle('reduced');
+            });
+        });
+        
+    }
     load_vars();
     if(!firstTime && document.title == 'Title Screen'){
         window.location.href = "./home.html";
@@ -150,7 +171,9 @@ document.addEventListener("DOMContentLoaded", function() {
     } catch (error) {
         
     }
-    
-    document.body.style.visibility = "visible";
+document.body.style.visibility = "visible";
 });
+
+
+
 

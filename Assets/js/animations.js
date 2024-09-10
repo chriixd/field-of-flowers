@@ -9,23 +9,39 @@ function levelUp_animation(){
     }, 2812);
 }
 async function completed_quest_animation(index){
-    setTimeout(() => {
+    document.getElementsByClassName("lock-img")[0].classList.add('op0');
+    setTimeout(()=>{
         document.getElementsByClassName("quest-body")[index -1].classList.add('reduced');
-
+        document.getElementsByClassName("quest-body")[index].classList.add('reduced');
         document.getElementsByClassName("quest-container")[index].classList.remove('hidden');
         setTimeout(()=>{
             document.getElementsByClassName("quest-container")[index].classList.remove('op0');
         },10);
-        document.getElementsByClassName("locked-quest")[0].remove()
-        setTimeout(() => {
-            
+            document.getElementsByClassName("locked-quest")[0].remove();
+        setTimeout(() => {     
             document.getElementsByClassName('quest-body')[index -1].classList.add("completed");
             document.getElementsByClassName("quest-body")[index].classList.remove('reduced');
             localStorage.setItem("new-quest",false);
         }, 500);
-    }, 1000);
+    },1000);
+
 
 }
-async function end_game_animation(){
-    
+async function show_popup_box(title="",description="",code=true){
+    popupOverlay = document.getElementById("hidden-popup-box");
+    document.querySelector("#box-title").innerHTML = title;
+    document.querySelector("#box-description").innerHTML = description;
+    popupOverlay.classList.remove("hidden")
+    setTimeout(() => {
+        popupOverlay.classList.remove('hide-popup');
+    }, 0); // Durata della dissolvenza (0.3s come in CSS)
+ 
+}
+async function hide_popup_box(){
+    popupOverlay = document.getElementById("hidden-popup-box");
+    popupOverlay.classList.add('hide-popup');
+    setTimeout(() => {
+        popupOverlay.classList.remove('show-popup');
+        popupOverlay.classList.add("hidden")
+    }, 500); // Durata della dissolvenza (0.3s come in CSS)
 }

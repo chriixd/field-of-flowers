@@ -75,8 +75,6 @@ p, h1 {
     margin: 0 0 20px 0;
     opacity: 1;
     transition: opacity 0.5s linear;
-
-
 }
 .quest-description{
     margin-bottom: 20px;
@@ -354,4 +352,88 @@ div.completed div.quest-complete{
     justify-content: space-between;
     height: 85vh;
     margin: 0;
+}
+#hidden-popup-box{
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    object-fit: cover;
+    transition: opacity 1s ease; 
+}
+#box-content{
+    background: #433833;
+    padding: 20px 40px 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 40px;
+    width: 80%;
+    box-sizing: border-box;
+    opacity: 1;
+}
+#hidden-popup-box button{
+    font-weight: 600;
+    font-family: 'EB Garamond';
+    font-size: 18px;
+    color: white;
+}
+.box-textbox{
+    display: flex;
+    width: 100%;
+    border-radius: 40px;
+    box-sizing: border-box;
+    padding: 15px 0;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+#box-title{
+    color:white;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 18pt;
+}
+#box-body{
+}
+.hide-popup {
+    opacity: 0;
+}
+.show-popup {
+    opacity: 1; /* Transizione per rendere visibile */
+}
+.box-textbox{
+    padding: 15px 25px;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: #211C19;
+    color: white;
+    font-family: 'Inter';
+}
+#box-description{
+    color:white
+}
+
+.code-button {
+    display: flex;
+    width: 100%;
+    background-color: #FF8A00;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 15px 0;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.code-button h1 {
+    font-weight: 600;
+    font-family: 'EB Garamond';
+    font-size: 18px;
 }
