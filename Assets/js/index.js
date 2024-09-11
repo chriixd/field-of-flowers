@@ -1,7 +1,7 @@
 function addProgress() {
    lastExp = expCount;
-    if(currentProgress < quests[gameProgress].progress.length) {
-        currentProgress++        
+    if(currentProgress < quests[gameProgress].progress.length -1) {
+                
     } else{
         expCount += quests[gameProgress].exp;
         moneyCount += quests[gameProgress].coins;
@@ -9,7 +9,7 @@ function addProgress() {
         localStorage.setItem("new-quest",true)
         gameProgress++;
     }
-    return {levelup : Math.floor(expCount/maxExp) != Math.floor((expCount - quests[gameProgress-1].exp)/maxExp),end:gameProgress == quests.length }
+    return {levelup : Math.floor(expCount/maxExp) != Math.floor((expCount - lastExp/maxExp)),end:gameProgress == quests.length }
 }
 function load_html(){
     if (document.title == 'Home'){
@@ -21,7 +21,9 @@ function load_html(){
             document.getElementsByClassName('reward-coins')[load_index].innerHTML = '+' + quests[load_index].coins;
             document.getElementsByClassName('reward-exp')[load_index].innerHTML = '+' + quests[load_index].exp;
             document.getElementsByClassName('quest-max-progress')[load_index].innerHTML = quests[load_index].progress.length;
-            document.getElementsByClassName('quest-body')[load_index].style.maxHeight = document.getElementsByClassName('quest-body')[load_index].scrollHeight+"px";
+            setTimeout(() => {
+                document.getElementsByClassName('quest-body')[load_index].style.maxHeight = document.getElementsByClassName('quest-body')[load_index].scrollHeight+"px";
+            }, 200);
             //  gestione visiblità quest pre-animazione
             document.getElementsByClassName('quest-progress')[load_index].innerHTML = (load_index < gameProgress ) ? quests[load_index].progress.length : currentProgress;
             if(load_index < gameProgress){
@@ -56,9 +58,11 @@ async function update_html(levelUp = false,end = false) {
         if(localStorage.getItem('introduction')=='true') {
 
             document.getElementById('introduction-text').classList.remove('op0');
+            document.getElementById('introduction-text').classList.add("background-blur");
             localStorage.setItem('introduction',false)
         } else {
             document.getElementById('introduction-text').classList.add('op0');
+            document.getElementById('introduction-text').classList.remove("background-blur");
             setTimeout(()=>{
                 document.getElementById('introduction-text').classList.add('hidden');
             },1000);
@@ -118,7 +122,7 @@ function flushStorage() {
 
 function startGame() {
     localStorage.setItem('introduction',true);
-    localStorage.setItem('firstTime', false);
+    localStorage.setItem('firstTime', true);
     window.location.href = "./home.html";
 }
 
@@ -130,7 +134,9 @@ function setWidth() {
 }
 
 var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
+
 document.addEventListener("DOMContentLoaded", function() {
+    load_vars();
     if(document.title=="Home"){
         document.getElementById("hidden-popup-box").addEventListener('click', (e)=> {
             if (e.target === document.getElementById("hidden-popup-box")) {
@@ -144,10 +150,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         document.querySelectorAll(".code-button").forEach(element=>{
             element.addEventListener('click',(ev)=>{
-                if(quests[gameProgress].progress[currentProgress] == document.querySelector(".box-textbox").value){
+                if(quests[gameProgress].progress[currentProgress].code == document.querySelector(".box-textbox").value){
                     let update = addProgress();
-                    update_html(update.levelup,update.end);
                     save_data();
+                    console.log(gameProgress);
+                    completed_quest_animation(gameProgress);
+                    update_html(update.levelup,update.end);
                 }
             });
         });
@@ -159,7 +167,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         
     }
-    load_vars();
+
+
+
     if(!firstTime && document.title == 'Title Screen'){
         window.location.href = "./home.html";
     }

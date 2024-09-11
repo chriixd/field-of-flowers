@@ -31,8 +31,9 @@ async function show_popup_box(title="",description="",code=true){
     popupOverlay = document.getElementById("hidden-popup-box");
     document.querySelector("#box-title").innerHTML = title;
     document.querySelector("#box-description").innerHTML = description;
-    popupOverlay.classList.remove("hidden")
+    popupOverlay.classList.remove("hidden");
     setTimeout(() => {
+        popupOverlay.classList.add("background-blur");
         popupOverlay.classList.remove('hide-popup');
     }, 0); // Durata della dissolvenza (0.3s come in CSS)
  
@@ -40,8 +41,8 @@ async function show_popup_box(title="",description="",code=true){
 async function hide_popup_box(){
     popupOverlay = document.getElementById("hidden-popup-box");
     popupOverlay.classList.add('hide-popup');
+    popupOverlay.classList.remove("background-blur");
     setTimeout(() => {
-        popupOverlay.classList.remove('show-popup');
         popupOverlay.classList.add("hidden")
     }, 500); // Durata della dissolvenza (0.3s come in CSS)
 }
