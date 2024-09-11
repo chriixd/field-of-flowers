@@ -1,15 +1,16 @@
 function addProgress() {
    lastExp = expCount;
-    if(currentProgress < quests[gameProgress].progress.length -1) {
-                
-    } else{
+   currentProgress++;
+    if(currentProgress < quests[gameProgress].progress.length  ) {
+        return{levelup : false , end:gameProgress == quests.length }
+    }else{
         expCount += quests[gameProgress].exp;
         moneyCount += quests[gameProgress].coins;
         currentProgress = 0;
         localStorage.setItem("new-quest",true)
         gameProgress++;
     }
-    return {levelup : Math.floor(expCount/maxExp) != Math.floor((expCount - lastExp/maxExp)),end:gameProgress == quests.length }
+    return {levelup : Math.floor(expCount/maxExp) != Math.floor((lastExp/maxExp)),end:gameProgress == quests.length }
 }
 function load_html(){
     if (document.title == 'Home'){
@@ -46,13 +47,17 @@ async function update_html(levelUp = false,end = false) {
         document.getElementById('money-amount').innerHTML = moneyCount;
         document.getElementById('exp-level').innerHTML = Math.floor(expCount / maxExp) + 1;
         document.getElementById('exp-progress').style.width = (((expCount %maxExp) / maxExp) * 100) + '%';
-        if (document.title == 'Home' && gameProgress < 8) {
+        if (document.title == 'Home' && gameProgress < quests.length) {
+            if(currentProgress == 0 && gameProgress > 0){
+                document.getElementsByClassName('quest-progress')[gameProgress-1].innerHTML = quests[gameProgress-1].progress.length; 
+            }
             document.getElementsByClassName('quest-progress')[gameProgress].innerHTML = currentProgress;
             await document.getElementById('quests-container').classList.remove("no-animation");
 
             if(end){
                     
             }
+
             // gestione animazioni
             
         if(localStorage.getItem('introduction')=='true') {
@@ -155,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     save_data();
                     console.log(gameProgress);
                     completed_quest_animation(gameProgress);
+                    hide_popup_box();
                     update_html(update.levelup,update.end);
                 }
             });
