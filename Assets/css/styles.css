@@ -266,6 +266,7 @@ p, h1 {
     padding-bottom: 45%;
     padding-top: 35%;
 }
+
 .lock-img{
     opacity: 1;
     transition: opacity 1s linear;
@@ -444,4 +445,72 @@ div.completed div.quest-complete{
 }
 .background-blur{
     backdrop-filter: blur(3px);
+}
+
+#profile-name {
+    color: white;
+    font-size: 18px;
+}
+
+#profile-description {
+    color: #CAC8C8;
+    text-align: center;
+    font-size: 16px;
+}
+
+.profile-text-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.inventory-container {
+    width: 100%;
+}
+
+.inventory-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 45%;
+    padding-top: 35%;
+    gap: 25px;
+}
+
+#inventory-title {
+    color: white;
+    font-size: 18px;
+}
+
+.inventory-container {
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.inventory-items {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inventory-item {
+    background-color: #433833;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 17.5px;
+}
+
+.inventory-item p {
+    color: white;
+    font-size: 16px;
+}
+
+.inventory-item img {
+    height: 30px;
 }
