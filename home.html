@@ -9,9 +9,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">  
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">    
-        <script src="Assets/js/animations.js"></script>
-        <script src="Assets/js/vars.js"></script>
-        <script src="Assets/js/index.js"></script> 
+        <script type="text/javascript" src="Assets/js/animations.js"></script>
+        <script type="text/javascript" src="Assets/js/vars.js"></script>
+        <script type="text/javascript" src="Assets/js/events.js"></script>
+        <script type="text/javascript" src="Assets/js/index.js"></script> 
     </head>
     <body>
         <div class="introduction-text flex op0" id="introduction-text" onclick="update_html()">
@@ -22,7 +23,7 @@
                 <h1 id="box-title">Testo di prova</h1>
                 <div id="box-body">
                     <p id="box-description"></p>
-                    <input  type="number" class="box-textbox" placeholder="">
+                    <input  type="text" class="box-textbox" placeholder="">
                     <button class="code-button">Completa missione</button>
                 </div>
                 <span id="outcome-message"></span>
@@ -132,30 +133,6 @@
                 </div>
                 <div class="quest-container" class="container quest-container flex" >
                       <div class="quest-title flex" >  
-                        <h1 class="quest-name">quest-name</h1>
-                        <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
-                        </div>
-                        <div class="quest-body">
-                        <p class="quest-description" class="quest-description">
-                            quest-description-paragraph
-                        </p>
-                        <div class="reward-container flex">
-                            <div class="reward">
-                                <img class="icon" src="Assets/img/icons/coin.png" alt="">
-                                <h1 class="reward-coins">+00</h1>
-                            </div>
-                            <div class="reward">
-                                <img class="icon" src="Assets/img/icons/exp.png" alt="">
-                                <h1 class="reward-exp">+00</h1>
-                            </div>
-                        </div>
-                        <div class="quest-complete" >
-                            <h1>Completato</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="quest-container" class="container quest-container flex">
-                     <div class="quest-title flex" > 
                         <h1 class="quest-name">quest-name</h1>
                         <h1><span class="quest-progress">0</span>/<span class="quest-max-progress">00</span></h1>
                         </div>
