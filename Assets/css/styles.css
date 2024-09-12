@@ -514,3 +514,9 @@ div.completed div.quest-complete{
 .inventory-item img {
     height: 30px;
 }
+.hidden-item > *{
+    opacity: 0;
+}
+.hidden-item{
+    background-color: #211C19
+}

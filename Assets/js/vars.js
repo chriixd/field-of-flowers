@@ -5,42 +5,42 @@
         "desc": "Per iniziare dovrai dirigerti laddove normalmente andresti per procurarti del cibo per il tuo fidato compagno Zagor e lì troverai i primi alleati… o che siano solamente dei farabutti ?",
         "exp": 50,
         "coins": 50,
-        "progress": [{code:3350,task:"trova i tuoi compagni"}]
+        "progress": [{code:"0",task:"trova i tuoi compagni"}]
       },
       {
         "title": "I Due Viandanti",
-        "desc": "Descrizione quest di Max & Marco",
+        "desc": "Come già ti è stato rivelato da questi due viandanti, tra i numerosi scaffali di questo luogo si nasconde un oggetto speciale. Trovalo e non scordarti il suo prezzo, poiché in quel numero si cela una verità nascosta che la coppia di vagabondi sta cercando. ",
         "exp": 50,
         "coins": 75,
-        "progress": [{code:7512,task:null},{code:4353,task:null}]
+        "progress": [{code:"0",task:null},{code:"0",task:null}]
       },
       {
         "title": "Laddove Tutto Poteva Iniziare",
         "desc": "Come molti sanno, tu, Giulia, sei oggi una delle più formidabili Guardiane delle Ferrovie, con una forza ineguagliabile e una volontà straordinaria. Ma non è sempre stato così. Il tuo passato ha forgiato il tuo presente. Ora dovrai dirigerti verso il luogo in cui saresti potuta finire, se non avessi scelto il cammino delle Ferrovie.Una semplice pietra potrebbe rivelarsi preziosa.",
         "exp": 75,
         "coins": 50,
-        "progress": [{code:1342,task:null}]
+        "progress": [{code:"0",task:null}]
       },
       {
         "title": "Origine della Simmetria",
         "desc": "In progress",
         "exp": 75,
         "coins": 75,
-        "progress": [{code:1241,task:null}]
+        "progress": [{code:"0",task:null}]
       },
       {
         "title": "Il Grande Mercato",
         "desc": "<i>Sono un crocevia di mille sapori,<br />tra gli scaffali puoi vagabondare,<br />frutta, pane e mille colori<br />,qui vieni per tutto ciò che vuoi cucinare.</i>",
         "exp": 50,
         "coins": 50,
-        "progress": [{code:1572,task:null}]
+        "progress": [{code:"0",task:null}]
       },
       {
         "title": "Il Re Ormai Scomparso",
         "desc": "<i>La sua anima un tempo infiammata,<br />Ora in silenzio è incatenata.<br />Nel cuore di un oggetto antico,Riposano fiamme di un vecchio amico.</br>Non più calore, non più tormento,<br /> Solo un ricordo nel freddo vento. <br />La sua anima, che tanto ha lottato,<br />Ora riposa, finalmente calmato.<br /></i>In questo luogo, tra le varie corsie, si nasconde un oggetto capace di estinguere persino la fiamma più feroce. La sua superficie cremisi porta inciso un antico numero, il quale, se pronunciato secondo il rituale corretto, farà risorgere il Re defunto.",
         "exp": 25,
         "coins": 100,
-        "progress": [{code:1515,task:null},{code:2117,task:null},{code:2111,task:null}]
+        "progress": [{code:"0",task:null},{code:"0",task:null},{code:"0",task:null}]
       },
       {
         "title": "La Prova del Re",

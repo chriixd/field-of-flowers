@@ -12,13 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         document.querySelectorAll(".code-button").forEach(element=>{
             element.addEventListener('click',(ev)=>{
-                if(quests[gameProgress].progress[currentProgress].code == document.querySelector(".box-textbox").value){
+                if(quests[gameProgress].progress[currentProgress].code.toLowerCase() == document.querySelector(".box-textbox").value.toLowerCase()){
                     let update = addProgress();
                     save_data();
-                    console.log(gameProgress);
-                    completed_quest_animation(gameProgress);
-                    hide_popup_box();
+                    hide_popup_box()
                     update_html(update.levelup,update.end);
+                    document.querySelector(".box-textbox").value ="";
                 }
             });
         });

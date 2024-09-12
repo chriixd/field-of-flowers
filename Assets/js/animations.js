@@ -9,9 +9,6 @@ function levelUp_animation(){
     }, 2812);
 }
 async function completed_quest_animation(index){
-    setTimeout(() => {
-      
-    }, 500);
     document.getElementsByClassName("lock-img")[0].classList.add('op0');
     setTimeout(()=>{
         document.getElementsByClassName("quest-body")[index -1].classList.add('reduced');
@@ -19,9 +16,9 @@ async function completed_quest_animation(index){
         document.getElementsByClassName("quest-container")[index].classList.remove('hidden');
         document.getElementsByClassName('quest-body')[index].style.maxHeight = document.getElementsByClassName('quest-body')[index].scrollHeight+"px";
         setTimeout(()=>{
+            document.getElementsByClassName("locked-quest")[0].remove();
             document.getElementsByClassName("quest-container")[index].classList.remove('op0');
         },10);
-            document.getElementsByClassName("locked-quest")[0].remove();
         setTimeout(() => {     
             document.getElementsByClassName('quest-body')[index -1].classList.add("completed");
             document.getElementsByClassName("quest-body")[index].classList.remove('reduced');
