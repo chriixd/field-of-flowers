@@ -397,8 +397,12 @@ div.completed div.quest-complete{
     border: none;
     color: white;
     font-family: 'Inter';
-
 }
+
+.box-textbox:focus {
+    outline: none;
+}
+
 #box-title{
     color:white;
     font-weight: 600;
