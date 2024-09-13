@@ -5,15 +5,15 @@
         "desc": "Per iniziare dovrai dirigerti laddove normalmente andresti per procurarti del cibo per il tuo fidato compagno Zagor e lì troverai i primi alleati… o che siano solamente dei farabutti ?",
         "exp": 50,
         "coins": 50,
-        "progress": [{code:"0",task:"trova i tuoi compagni"}],
+        "progress": [{code:"sam",task:"Chi è il primo farabutto che incontri ?"}],
         "join":false
       },
       {
         "title": "I Due Viandanti",
-        "desc": "Come già ti è stato rivelato da questi due viandanti, tra i numerosi scaffali di questo luogo si nasconde un oggetto speciale. Trovalo e non scordarti il suo prezzo, poiché in quel numero si cela una verità nascosta che la coppia di vagabondi sta cercando. ",
+        "desc": "Come già ti è stato rivelato da questo solitario viandante, tra i numerosi scaffali di questo luogo si nasconde un oggetto che raffigura una particolare creatura. Trovalo poiché in questo animale si cela una verità nascosta che il vagabondo sta cercando.",
         "exp": 50,
         "coins": 75,
-        "progress": [{code:"0",task:null},{code:"0",task:null}],
+        "progress": [{code:"Topo",task:"qual è la creatura misteriosa ? "}],
         "join":true
       },
       {
@@ -21,7 +21,7 @@
         "desc": "In progress",
         "exp": 75,
         "coins": 75,
-        "progress": [{code:"0",task:null}],
+        "progress": [{code:"plug in baby",task:"qual è il nome del brano ?"},{code:"californication",task:"qual è il nome del brano ?"},{code:"my own summer",task:"qual è il nome del brano ?"}],
         "join" : true
       },
       {
@@ -29,8 +29,8 @@
         "desc": "Come molti sanno, tu, Giulia, sei oggi una delle più formidabili Guardiane delle Ferrovie, con una forza ineguagliabile e una volontà straordinaria. Ma non è sempre stato così. Il tuo passato ha forgiato il tuo presente. Ora dovrai dirigerti verso il luogo in cui saresti potuta finire, se non avessi scelto il cammino delle Ferrovie.Una semplice pietra potrebbe rivelarsi preziosa.",
         "exp": 75,
         "coins": 50,
-        "progress": [{code:"0",task:null}],
-        "join":true
+        "progress": [{code:"la piadineria",task:"Qual è questo luogo ?"}],
+        "join":false
       },
       {
         "title": "Il Grande Mercato",
@@ -45,7 +45,7 @@
         "desc": "<i>La sua anima un tempo infiammata,<br />Ora in silenzio è incatenata.<br />Nel cuore di un oggetto antico,Riposano fiamme di un vecchio amico.</br>Non più calore, non più tormento,<br /> Solo un ricordo nel freddo vento. <br />La sua anima, che tanto ha lottato,<br />Ora riposa, finalmente calmato.<br /></i>In questo luogo, tra le varie corsie, si nasconde un oggetto capace di estinguere persino la fiamma più feroce. La sua superficie cremisi porta inciso un antico numero, il quale, se pronunciato secondo il rituale corretto, farà risorgere il Re defunto.",
         "exp": 25,
         "coins": 100,
-        "progress": [{code:"0",task:null},{code:"0",task:null},{code:"0",task:null}],
+        "progress": [{code:"0",task:"Qual é l'antico numero necessario per riportare in vita il Re ?"}],
         "join": true
       },
       {
@@ -59,3 +59,8 @@
     ]
 
 const lock_quest_html ='<div class="quest locked-quest container flex">\n<img class="lock-img" src="Assets/img/icons/lock.png" alt="">\n </div>'
+
+
+/* backup quest di Nick & Sam:
+Come già ti è stato rivelato da questi due viandanti, tra i numerosi scaffali di questo luogo si nasconde un oggetto speciale. Trovalo e non scordarti il suo prezzo, poiché in quel numero si cela una verità nascosta che la coppia di vagabondi sta cercando. "
+*/
