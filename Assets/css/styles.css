@@ -1,4 +1,5 @@
 body {
+    opacity: 1;
     margin: 0;
     background-color: #161210;
     display: flex;
@@ -351,8 +352,11 @@ div.completed div.quest-complete{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 85vh;
-    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 2s ease-in-out , backdrop-filter 1s ease-out;
+    backdrop-filter: blur(3px);
+    opacity: 1;
 }
 #hidden-popup-box{
     background-color: rgba(0, 0, 0, 0.6);

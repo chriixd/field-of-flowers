@@ -14,6 +14,9 @@ function addProgress() {
 }
 
 function load_html(){
+    if(firstTime=='false' && document.title == 'Title Screen'){
+        window.location.href = "./home.html";
+    }
     if (document.title == 'Home'){
 
         document.getElementById('quests-container').classList.add("no-animation");
@@ -76,11 +79,6 @@ async function update_html(levelUp = false,end = false) {
             if(localStorage.getItem("new-quest")=='true'){completed_quest_animation(gameProgress);}
             if(levelUp) {levelUp_animation();}
         }
-
-        if(document.getElementById('money-amount').innerHTML == '1010' && !localStorage.getItem('isWidthSet')) {
-            localStorage.setItem('money-container-width', parseInt(getComputedStyle(document.getElementById('money-container')).width.slice(0, -2)))
-            localStorage.setItem('isWidthSet', true);
-        }
     }
 
 }
@@ -121,42 +119,24 @@ function flushStorage() {
     if(document.getElementById('flush-key').value == 'reset') {
         localStorage.clear();
         document.getElementById('flush-key').value = '';
-        console.log("Storage Flushed")
         window.location.href = "./index.html";
     }
 }
 
 function startGame() {
     localStorage.setItem('introduction',true);
-    localStorage.setItem('firstTime', true);
-    window.location.href = "./home.html";
+    localStorage.setItem('firstTime', false);
+    document.querySelector("#title-page-body").style.opacity = 0;
+    setTimeout(()=>{
+        window.location.href = "./home.html";
+    },2000);
+   
 }
-
-function setWidth() {
-    if(localStorage.getItem('isWidthSet')) {
-        console.log(localStorage.getItem('money-container-width'));
-        document.getElementById('money-container').style.width = localStorage.getItem('money-container-width') + 'px';
-    }
-}
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
     load_vars();
-    if(!firstTime && document.title == 'Title Screen'){
-        window.location.href = "./home.html";
-    }
     load_html();
     update_html();
-    // display_log("post-dichiarazione-variabili")
-    try {
-        setWidth();
-    } catch (error) {
-        
-    }
-document.body.style.visibility = "visible";
+    document.body.style.visibility = "visible";
 });
-
-
-
-
