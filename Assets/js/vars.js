@@ -1,4 +1,4 @@
-    var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount,npc_counter,unlocked_npcs;
+    var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount,npc_counter,unlocked_npcs,shop_acquired,opened_item;
     var shop_acquired = [0,0,0,0,0,0];
     const progress_bars = [50,89,52,46,26,89,21,19,78];
     const npc_levels = [3,5,7,12,10,20,30,100,50];

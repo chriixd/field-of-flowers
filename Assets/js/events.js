@@ -28,11 +28,16 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-    // if(document.title=="Shop"){
-    //     document.querySelector(".shop-container").querySelectorAll(".inventory-item").forEach(element=>{
-    //         element.addEventListener('click',(ev)=>{
-    //             show_popup_box()
-    //         });
-    //     });  
-    // }
+     if(document.title=="Shop"){
+        document.querySelector(".purchase").addEventListener("click",(ev)=>{
+            if (ev.target === document.getElementById("purchase")){
+                document.getElementById('purchase').classList.add('op0');
+                setTimeout(()=>{
+                    document.getElementById('purchase').classList.add('hidden');
+                },1000);
+                update_html();
+                
+            }
+        });
+     }
 });

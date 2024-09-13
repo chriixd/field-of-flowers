@@ -91,7 +91,21 @@ async function update_html(levelUp = false,end = false) {
             }
             if(levelUp) {levelUp_animation();}
         }
+    
     }
+    if(document.title=="Shop"){
+        var invCount = 0;
+        document.querySelector(".shop-container").querySelectorAll(".inventory-item").forEach((el,i,arr)=>{
+            if(shop_acquired[i]==1){
+                document.querySelector(".shop-container").querySelectorAll(".inventory-item")[i].classList.add("hidden-item");
+                document.querySelector(".inventory-container").querySelectorAll(".inventory-item")[invCount]
+                invCount++;
+            }
+        });
+
+    }
+
+        
 
 }
 
@@ -123,11 +137,15 @@ function load_vars(){
      gameProgress = parseInt(localStorage.getItem('gameProgress'))  || 0;
      currentProgress = parseInt(localStorage.getItem('quest-progress'))  || 0;
      expCount = parseInt(localStorage.getItem('expCount')) || 0;
-     moneyCount = parseInt(localStorage.getItem('moneyCount')) || 100;
+     moneyCount = isNaN(parseInt(localStorage.getItem('moneyCount')))  ?  100 : parseInt(localStorage.getItem('moneyCount'));
      firstTime = localStorage.getItem('firstTime') || true;
      gameCompleted = localStorage.getItem('gameCompleted') || false;
      unlocked_npcs = parseInt(localStorage.getItem('unlocked_npcs')) ||2;
-     shop_acquired = localStorage.getItem("shop_acquired") || [0,0,0,0,0,0];
+     try{
+        shop_acquired = localStorage.getItem("shop_acquired").split(",");
+     }catch{
+        shop_acquired = [0,0,0,0,0,0];
+     } 
      maxExp = 100;
 } 
 
@@ -148,41 +166,36 @@ function startGame() {
     },2000);
 }
 
-function quitPurchase() {
-    document.getElementById('purchase').classList.remove('flex');
-    document.getElementById('purchase').classList.add('hidden');
-}
 
 function purchasePopup(itemNo, itemName) {
+    document.getElementById('purchase').classList.remove('hidden');
+    setTimeout(() => {
+        document.getElementById('purchase').classList.remove('op0')
+    }, 10);
+    opened_item = itemNo-1;
+    save_data();
     switch(itemNo) {
         case 1:
             console.log('selected item no.1');
-            document.getElementById('purchase').classList.remove('hidden');
-            document.getElementById('purchase').classList.add('flex');
+
             document.getElementById('purchasable-item-name').innerHTML = 'Forchetta della Danza Irresistibile';
             document.getElementById('purchasable-item-description').innerHTML = 'Questa forchetta di argento, decorata con rune intricate, emana una magia caotica. Chiunque venga colpito dalle sue punte è costretto a ballare freneticamente per un minuto, incapace di fermarsi. La danza varia tra movimenti caotici e graziose piroette, a seconda della vittima.';
             document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
             break;
         case 2:
             console.log('selected item no.2');
-            document.getElementById('purchase').classList.remove('hidden');
-            document.getElementById('purchase').classList.add('flex');
             document.getElementById('purchasable-item-name').innerHTML = 'Sasso del Potere';
             document.getElementById('purchasable-item-description').innerHTML = 'Questo ciottolo bianco ha una abilità unica: dopo aver rivelato la tua mano in una partita di carta, forbice, sasso, trasforma magicamente la tua scelta in sasso. Discreto e rapido, offre un vantaggio sorprendente, confondendo gli avversari.';
             document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
             break;
         case 3:
             console.log('selected item no.3');
-            document.getElementById('purchase').classList.remove('hidden');
-            document.getElementById('purchase').classList.add('flex');
             document.getElementById('purchasable-item-name').innerHTML = 'Moneta del Destino';
             document.getElementById('purchasable-item-description').innerHTML = 'La Moneta del Destino offre un potere semplice ma straordinario: dichiarando "testa" o "croce" e lanciandola, se indovini, acquisisci immediatamente la risposta a una domanda. Tuttavia, fallire ti lascerà nel dubbio fino a quando non scoprirai la verità da solo.';
                         document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
             break;
         case 4:
             console.log('selected item no.4');
-            document.getElementById('purchase').classList.remove('hidden');
-            document.getElementById('purchase').classList.add('flex');
             document.getElementById('purchasable-item-name').innerHTML = 'Mochi della Saggezza';
             document.getElementById('purchasable-item-description').innerHTML = 'Questo mochi pare davvero prelibato.';
                         document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
