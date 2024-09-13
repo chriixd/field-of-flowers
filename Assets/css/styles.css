@@ -353,6 +353,7 @@ div.completed div.quest-complete{
     justify-content: space-between;
     height: 85vh;
     margin: 0;
+    width: 100vw;
 }
 #hidden-popup-box{
     background-color: rgba(0, 0, 0, 0.6);
