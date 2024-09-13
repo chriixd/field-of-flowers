@@ -17,14 +17,6 @@
         "join":true
       },
       {
-        "title": "Laddove Tutto Poteva Iniziare",
-        "desc": "Come molti sanno, tu, Giulia, sei oggi una delle più formidabili Guardiane delle Ferrovie, con una forza ineguagliabile e una volontà straordinaria. Ma non è sempre stato così. Il tuo passato ha forgiato il tuo presente. Ora dovrai dirigerti verso il luogo in cui saresti potuta finire, se non avessi scelto il cammino delle Ferrovie.Una semplice pietra potrebbe rivelarsi preziosa.",
-        "exp": 75,
-        "coins": 50,
-        "progress": [{code:"0",task:null}],
-        "join":true
-      },
-      {
         "title": "Origine della Simmetria",
         "desc": "In progress",
         "exp": 75,
@@ -33,11 +25,19 @@
         "join" : true
       },
       {
+        "title": "Laddove Tutto Poteva Iniziare",
+        "desc": "Come molti sanno, tu, Giulia, sei oggi una delle più formidabili Guardiane delle Ferrovie, con una forza ineguagliabile e una volontà straordinaria. Ma non è sempre stato così. Il tuo passato ha forgiato il tuo presente. Ora dovrai dirigerti verso il luogo in cui saresti potuta finire, se non avessi scelto il cammino delle Ferrovie.Una semplice pietra potrebbe rivelarsi preziosa.",
+        "exp": 75,
+        "coins": 50,
+        "progress": [{code:"0",task:null}],
+        "join":true
+      },
+      {
         "title": "Il Grande Mercato",
         "desc": "<i>Sono un crocevia di mille sapori,<br />tra gli scaffali puoi vagabondare,<br />frutta, pane e mille colori,<br />qui vieni per tutto ciò che vuoi cucinare.</i>",
         "exp": 50,
         "coins": 50,
-        "progress": [{code:"0",task:null}],
+        "progress": [{code:"Carrefour",task:"Qual é il nome di questo luogo ancora inesplorato"}],
         "join":true
       },
       {

@@ -354,6 +354,7 @@ div.completed div.quest-complete{
     height: 100vh;
     margin: 0;
     width: 100vw;
+   transition :opacity 2s ease,backdrop-filter 2s ease-in-out 
 }
 #hidden-popup-box{
     background-color: rgba(0, 0, 0, 0.6);
