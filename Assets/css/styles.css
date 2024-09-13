@@ -474,6 +474,7 @@ div.completed div.quest-complete{
     align-items: center;
     width: 100%;
     padding-top: 35%;
+    padding-bottom: 45%;
     gap: 25px;
 }
 
@@ -546,4 +547,79 @@ div.completed div.quest-complete{
 .item-price img {
     height: 15px;
     width: 15px;
+}
+
+.party-element {
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 10px;
+    width: 85%;
+    border-radius: 30px;
+    border: 1px solid white;
+    background-color: #2C2522;
+    padding: 20px 30px 20px 10px;
+    box-sizing: border-box;
+}
+
+.party-element img {
+    height: 65px;
+}
+
+.party-info-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.party-info-wrap-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.party-info-wrap-column h1 {
+    color: white;
+    font-size: 18px;
+}
+
+.party-info-wrap-column span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.party-level p {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.party-level img {
+    height: 20px;
+}
+
+.party-level-bar-container {
+    height: 5px;
+    background-color: #161210;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.party-level-bar-progress {
+    background-color: #2CD4EB;
+    height: 5px;
+    border-radius: 50px;
+    width: 50%;
+}
+
+.party-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 45%;
+    padding-top: 35%;
+    gap: 20px;
 }
