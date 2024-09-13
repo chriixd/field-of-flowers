@@ -6,6 +6,7 @@ function addProgress() {
     }else{
         expCount += quests[gameProgress].exp;
         moneyCount += quests[gameProgress].coins;
+        unlocked_npcs+= quests[gameProgress].unlock_npc;
         currentProgress = 0;
         localStorage.setItem("new-quest",true)
         gameProgress++;
@@ -16,6 +17,15 @@ function addProgress() {
 function load_html(){
     if(firstTime=='false' && document.title == 'Title Screen'){
         window.location.href = "./home.html";
+    }
+    if(document.title =="Party"){
+        document.querySelectorAll(".party-element").forEach((element,index,arr)=>{
+            if(index < unlocked_npcs){
+                document.querySelectorAll(".party-element")[index].classList.remove("hidden");
+                document.querySelectorAll(".party-level-bar-progress")[index].style.width = progress_bars[index]+"%";
+                document.querySelectorAll(".party-level")[index].querySelector("p").innerHTML = npc_levels[index];
+            }
+        });
     }
     if (document.title == 'Home'){
 
@@ -76,7 +86,9 @@ async function update_html(levelUp = false,end = false) {
                 document.getElementById('introduction-text').classList.add('hidden');
             },1000);
         }
-            if(localStorage.getItem("new-quest")=='true'){completed_quest_animation(gameProgress);}
+            if(localStorage.getItem("new-quest")=='true'){
+                completed_quest_animation(gameProgress);
+            }
             if(levelUp) {levelUp_animation();}
         }
     }
@@ -95,6 +107,8 @@ function save_data(){
     localStorage.setItem('expCount', expCount);
     localStorage.setItem('moneyCount', moneyCount);
     localStorage.setItem('quest-progress', currentProgress);
+    localStorage.setItem('unlocked_npcs',unlocked_npcs);
+    localStorage.setItem('shop_acquired',shop_acquired);
 }
 
 function display_log(when){
@@ -112,6 +126,8 @@ function load_vars(){
      moneyCount = parseInt(localStorage.getItem('moneyCount')) || 100;
      firstTime = localStorage.getItem('firstTime') || true;
      gameCompleted = localStorage.getItem('gameCompleted') || false;
+     unlocked_npcs = parseInt(localStorage.getItem('unlocked_npcs')) ||2;
+     shop_acquired = localStorage.getItem("shop_acquired") || [0,0,0,0,0,0];
      maxExp = 100;
 } 
 

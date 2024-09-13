@@ -1,4 +1,7 @@
-    var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount;
+    var maxExp,gameProgress,currentProgress,expCount,firstTime,moneyCount,npc_counter,unlocked_npcs;
+    var shop_acquired = [0,0,0,0,0,0];
+    const progress_bars = [50,89,52,46,26,89,21,19,78];
+    const npc_levels = [3,5,7,12,10,20,30,100,50];
     const quests = [
       {
         "title": "Un Inizio Improbabile",
@@ -6,23 +9,15 @@
         "exp": 50,
         "coins": 50,
         "progress": [{code:"sam",task:"Chi è il primo farabutto che incontri ?"}],
-        "join":false
+        "unlock_npc": 0
       },
       {
-        "title": "I Due Viandanti",
+        "title": "Il Viandante Solitario",
         "desc": "Come già ti è stato rivelato da questo solitario viandante, tra i numerosi scaffali di questo luogo si nasconde un oggetto che raffigura una particolare creatura. Trovalo poiché in questo animale si cela una verità nascosta che il vagabondo sta cercando.",
         "exp": 50,
         "coins": 75,
-        "progress": [{code:"Topo",task:"qual è la creatura misteriosa ? "}],
-        "join":true
-      },
-      {
-        "title": "Origine della Simmetria",
-        "desc": "In progress",
-        "exp": 75,
-        "coins": 75,
-        "progress": [{code:"plug in baby",task:"qual è il nome del brano ?"},{code:"californication",task:"qual è il nome del brano ?"},{code:"my own summer",task:"qual è il nome del brano ?"}],
-        "join" : true
+        "progress": [{code:"Topo",task:"qual è la creatura misteriosa ?"}],
+        "unlock_npc": 1
       },
       {
         "title": "Laddove Tutto Poteva Iniziare",
@@ -30,7 +25,15 @@
         "exp": 75,
         "coins": 50,
         "progress": [{code:"la piadineria",task:"Qual è questo luogo ?"}],
-        "join":false
+        "unlock_npc": 0
+      },
+      {
+        "title": "Origine della Simmetria",
+        "desc": "I due antichi bardi custodiscono i segreti per riportare in vita il defunto re. Tuttavia, prima di svelarli, dovrai affrontare e superare le loro prove, dimostrando la tua conoscenza e saggezza.",
+        "exp": 75,
+        "coins": 75,
+        "progress": [{code:"plug in baby",task:"qual è il nome del brano ?"},{code:"californication",task:"qual è il nome del brano ?"},{code:"my own summer",task:"qual è il nome del brano ?"}],
+        "unlock_npc": 2
       },
       {
         "title": "Il Grande Mercato",
@@ -38,7 +41,7 @@
         "exp": 50,
         "coins": 50,
         "progress": [{code:"Carrefour",task:"Qual é il nome di questo luogo ancora inesplorato"}],
-        "join":true
+        "unlock_npc": 0
       },
       {
         "title": "Il Re Ormai Scomparso",
@@ -46,7 +49,7 @@
         "exp": 25,
         "coins": 100,
         "progress": [{code:"0",task:"Qual é l'antico numero necessario per riportare in vita il Re ?"}],
-        "join": true
+        "unlock_npc": 2
       },
       {
         "title": "La Prova del Re",
@@ -54,7 +57,7 @@
         "exp": 100,
         "coins": 1000,
         "progress": [{code:"mango",task:"Qui si cela un luogo nascosto, il cui nome richiama un dolce frutto."},{code:"Bottega del Caffè e Bottega & Natura",task:"Sono due, una appartiene al Regno del Caffè, l'altra è fianco a fianco con la Natura"},{code:"trony",task:"Qual è la bottega senza pari, così unica che non ha eguali? Che brilla come una stella nel cielo, senza paragoni tra tutte le meraviglie."},{code:"PittaRosso",task:"È di un rosso intenso, ma non è il frutto del campo; ciò che cerchi è avvolto nel mistero e non è un semplice pomodoro."},{code:"GrandVision",task:"Per guidare con saggezza, un Re deve possedere grandi visioni del futuro; qui si cela un luogo che svela tali visioni a chiunque le cerchi"}],
-        "join" : true
+        "unlock_npc": 2
       }
     ]
 

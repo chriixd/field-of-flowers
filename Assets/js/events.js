@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         document.querySelectorAll(".code-button").forEach(element=>{
             element.addEventListener('click',(ev)=>{
-                if(quests[gameProgress].progress[currentProgress].code.toLowerCase() == document.querySelector(".box-textbox").value.toLowerCase()){
+                if(quests[gameProgress].progress[currentProgress].code.toLowerCase() == document.querySelector(".box-textbox").value.toLowerCase() || quests[gameProgress].progress[currentProgress].code.toLowerCase() =='0' ){
                     let update = addProgress();
                     save_data();
-                    hide_popup_box()
+                    hide_popup_box();
                     update_html(update.levelup,update.end);
                     document.querySelector(".box-textbox").value ="";
                 }
@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 ev.target.closest(".quest-container").getElementsByClassName("quest-body")[0].classList.toggle('reduced');
             });
         });
-        
     }
+    // if(document.title=="Shop"){
+    //     document.querySelector(".shop-container").querySelectorAll(".inventory-item").forEach(element=>{
+    //         element.addEventListener('click',(ev)=>{
+    //             show_popup_box()
+    //         });
+    //     });  
+    // }
 });
