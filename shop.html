@@ -17,6 +17,18 @@
 
 </head>
 <body>
+    <div class="purchase hidden" id="purchase" onclick="quitPurchase()">
+        <div class="purchase-popup">
+            <div class="purchase-popup-text">
+                <h1 id="purchasable-item-name" style="text-align: center;">Item Name</h1>
+                <p id="purchasable-item-description" style="text-align: center;">Item Description</p>
+            </div>
+            <img id="purchasable-item-image" src="Assets/img/icons/mochi.png" alt="">
+            <div class="purchase-button">
+                <h1 style="font-family: 'EB Garamond';">Acquista</h1>
+            </div>
+        </div>
+    </div>
     <div class="container stats-bar flex">
         <div id="money-container" class="container flex money">
             <span class="flex">
@@ -45,7 +57,7 @@
             <img style="width: 100px; height: auto;" src="Assets/Avatar/00_Giulia/250x250.png" alt="">
             <div class="profile-text-container flex">
                 <h1 id="profile-name">Giulia</h1>
-                <p id="profile-description">Giulia la cacona smerdona negra spisciona scagamerdona.</p>
+                <p id="profile-description">Giulia, la Guardiana delle Ferrovie, veglia sui binari, proteggendo i viaggiatori e mantenendo l’ordine tra i treni.</p>
             </div>
             <div class="inventory-container flex">
                 <h1 id="inventory-title">Inventario</h1>
@@ -90,21 +102,21 @@
         <div class="shop-container flex">
             <h1 id="shop-title">Negozio</h1>
             <div class="inventory-items flex">
-                <div class="inventory-item flex">
-                    <img src="Assets/img/icons/mail.png" alt="">
+                <div class="inventory-item flex" onclick="purchasePopup(1, 'forchetta')">
+                    <img src="Assets/img/icons/forchetta.png" alt="">
                     <span class="item-price flex">
                         <img src="Assets/img/icons/coin.png" alt="">
                         <p>100</p>
                     </span>
                 </div>
-                <div class="inventory-item flex">
+                <div class="inventory-item flex" onclick="purchasePopup(2, 'sasso')">
                     <img src="Assets/img/icons/sasso.png" alt="">
                     <span class="item-price flex">
                         <img src="Assets/img/icons/coin.png" alt="">
                         <p>50</p>
                     </span>
                 </div>
-                <div class="inventory-item flex">
+                <div class="inventory-item flex" onclick="purchasePopup(3, 'old-coin')">
                     <img src="Assets/img/icons/old-coin.png" alt="">
                     <span class="item-price flex">
                         <img src="Assets/img/icons/coin.png" alt="">
@@ -112,7 +124,7 @@
                     </span>
                 </div>
             </div>
-            <div class="inventory-items flex">
+            <div class="inventory-items flex" onclick="purchasePopup(4, 'mochi')">
                 <div class="inventory-item flex">
                     <img src="Assets/img/icons/mochi.png" alt="">
                     <span class="item-price flex">

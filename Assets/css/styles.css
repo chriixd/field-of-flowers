@@ -625,3 +625,61 @@ div.completed div.quest-complete{
     padding-top: 35%;
     gap: 20px;
 }
+
+.purchase {
+    background-color: rgba(0, 0, 0, 0.685);
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    transition: opacity 1s ease-out, backdrop-filter 1s ease-out ;
+    opacity: 1;
+}
+
+.purchase-popup {
+    width: 85%;
+    border-radius: 30px;
+    border: 1px solid white;
+    background: #2C2522;
+    padding: 35px 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.purchase-popup h1 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.purchase-popup p {
+    color: #CAC8C7;
+    font-size: 16px;
+}
+
+.purchase-popup img {
+    height: 55px;
+    background-color: #433833;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.purchase-popup-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.purchase-button {
+    background-color: #FF8A00;
+    border-radius: 10px;
+    padding: 15px 50px;
+}

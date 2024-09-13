@@ -130,9 +130,49 @@ function startGame() {
     setTimeout(()=>{
         window.location.href = "./home.html";
     },2000);
-   
 }
 
+function quitPurchase() {
+    document.getElementById('purchase').classList.remove('flex');
+    document.getElementById('purchase').classList.add('hidden');
+}
+
+function purchasePopup(itemNo, itemName) {
+    switch(itemNo) {
+        case 1:
+            console.log('selected item no.1');
+            document.getElementById('purchase').classList.remove('hidden');
+            document.getElementById('purchase').classList.add('flex');
+            document.getElementById('purchasable-item-name').innerHTML = 'Forchetta della Danza Irresistibile';
+            document.getElementById('purchasable-item-description').innerHTML = 'Questa forchetta di argento, decorata con rune intricate, emana una magia caotica. Chiunque venga colpito dalle sue punte è costretto a ballare freneticamente per un minuto, incapace di fermarsi. La danza varia tra movimenti caotici e graziose piroette, a seconda della vittima.';
+            document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            break;
+        case 2:
+            console.log('selected item no.2');
+            document.getElementById('purchase').classList.remove('hidden');
+            document.getElementById('purchase').classList.add('flex');
+            document.getElementById('purchasable-item-name').innerHTML = 'Sasso del Potere';
+            document.getElementById('purchasable-item-description').innerHTML = 'Questo ciottolo bianco ha una abilità unica: dopo aver rivelato la tua mano in una partita di carta, forbice, sasso, trasforma magicamente la tua scelta in sasso. Discreto e rapido, offre un vantaggio sorprendente, confondendo gli avversari.';
+            document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            break;
+        case 3:
+            console.log('selected item no.3');
+            document.getElementById('purchase').classList.remove('hidden');
+            document.getElementById('purchase').classList.add('flex');
+            document.getElementById('purchasable-item-name').innerHTML = 'Moneta del Destino';
+            document.getElementById('purchasable-item-description').innerHTML = 'La Moneta del Destino offre un potere semplice ma straordinario: dichiarando "testa" o "croce" e lanciandola, se indovini, acquisisci immediatamente la risposta a una domanda. Tuttavia, fallire ti lascerà nel dubbio fino a quando non scoprirai la verità da solo.';
+                        document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            break;
+        case 4:
+            console.log('selected item no.4');
+            document.getElementById('purchase').classList.remove('hidden');
+            document.getElementById('purchase').classList.add('flex');
+            document.getElementById('purchasable-item-name').innerHTML = 'Mochi della Saggezza';
+            document.getElementById('purchasable-item-description').innerHTML = 'Questo mochi pare davvero prelibato.';
+                        document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            break;
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     load_vars();
