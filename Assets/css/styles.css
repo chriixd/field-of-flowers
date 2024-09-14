@@ -382,7 +382,7 @@ div.completed div.quest-complete{
     position: fixed;
     z-index: 1000;
     object-fit: cover;
-    transition :opacity 1s ease,backdrop-filter 1s ease-in-out 
+    transition :opacity .25s ease,backdrop-filter .25s ease-in-out 
 }
 #box-content{
     background: #2C2522;
