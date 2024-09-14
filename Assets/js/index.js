@@ -282,106 +282,108 @@ function purchasePopup(itemNo, itemName) {
 }
 
 function purchaseItem() {
-    selectedPurchasable = localStorage.getItem('selectedPurchasable');
-    expLevel =  parseInt(document.getElementById('exp-level').innerHTML);
-    console.log(selectedPurchasable, expLevel);
-        if (selectedPurchasable == 1) {
-            if(moneyCount >= 100 && expLevel >= 1) {
-                document.getElementById('purchase').classList.add('op0');
-                setTimeout(()=>{
-                    document.getElementById('purchase').classList.add('hidden');
-                },1000);
-                localStorage.setItem('item1Purchased?', true);
-                moneyCount -= 100;
-            }
-            document.getElementById('first-item-image').style.opacity = 0.25;
-            document.getElementById('first-item-coin-icon').classList.add('hidden');
-            document.getElementById('first-item-price').innerHTML = 'Sold';
-            document.getElementById('first-item-price').style.opacity = 0.25;
-            for (let i = 1; i <= 4; i++) {
-                const slot = document.querySelector(`#inventory-slot-${i} img`);
-                if(slot.getAttribute('src') === 'Assets/img/null.png') {
-                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
-                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/forchetta.png';
-                    localStorage.setItem('firstItemSlot', i);
-                    break;
+    if(getComputedStyle(document.querySelector('.purchase-button')) != '#808080') {
+        selectedPurchasable = localStorage.getItem('selectedPurchasable');
+        expLevel =  parseInt(document.getElementById('exp-level').innerHTML);
+        console.log(selectedPurchasable, expLevel);
+            if (selectedPurchasable == 1) {
+                if(moneyCount >= 100 && expLevel >= 1) {
+                    document.getElementById('purchase').classList.add('op0');
+                    setTimeout(()=>{
+                        document.getElementById('purchase').classList.add('hidden');
+                    },1000);
+                    localStorage.setItem('item1Purchased?', true);
+                    moneyCount -= 100;
                 }
-            }
-            save_data();
-            update_html();
-        } else if (selectedPurchasable == 2) {
-            if(moneyCount >= 50 && expLevel >= 2) {
-                document.getElementById('purchase').classList.add('op0');
-                setTimeout(()=>{
-                    document.getElementById('purchase').classList.add('hidden');
-                },1000);
-                localStorage.setItem('item2Purchased?', true);
-                moneyCount -= 50;
-            }
-            document.getElementById('second-item-image').style.opacity = 0.25;
-            document.getElementById('second-item-coin-icon').classList.add('hidden');
-            document.getElementById('second-item-price').innerHTML = 'Sold';
-            document.getElementById('second-item-price').style.opacity = 0.25;
-            for (let i = 1; i <= 4; i++) {
-                const slot = document.querySelector(`#inventory-slot-${i} img`);
-                if(slot.getAttribute('src') === 'Assets/img/null.png') {
-                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
-                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
-                    localStorage.setItem('secondItemSlot', i);
-                    break;
+                document.getElementById('first-item-image').style.opacity = 0.25;
+                document.getElementById('first-item-coin-icon').classList.add('hidden');
+                document.getElementById('first-item-price').innerHTML = 'Sold';
+                document.getElementById('first-item-price').style.opacity = 0.25;
+                for (let i = 1; i <= 4; i++) {
+                    const slot = document.querySelector(`#inventory-slot-${i} img`);
+                    if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                        document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                        document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/forchetta.png';
+                        localStorage.setItem('firstItemSlot', i);
+                        break;
+                    }
                 }
-            }
-            save_data();
-            update_html();
-        } else if (selectedPurchasable == 3) {
-            if(moneyCount >= 200 && expLevel >= 3) {
-                document.getElementById('purchase').classList.add('op0');
-                setTimeout(()=>{
-                    document.getElementById('purchase').classList.add('hidden');
-                },1000);
-                localStorage.setItem('item3Purchased?', true);
-                moneyCount -= 200;
-            }
-            document.getElementById('third-item-image').style.opacity = 0.25;
-            document.getElementById('third-item-coin-icon').classList.add('hidden');
-            document.getElementById('third-item-price').innerHTML = 'Sold';
-            document.getElementById('third-item-price').style.opacity = 0.25;
-            for (let i = 1; i <= 4; i++) {
-                const slot = document.querySelector(`#inventory-slot-${i} img`);
-                if(slot.getAttribute('src') === 'Assets/img/null.png') {
-                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
-                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
-                    localStorage.setItem('thirdItemSlot', i);
-                    break;
+                save_data();
+                update_html();
+            } else if (selectedPurchasable == 2) {
+                if(moneyCount >= 50 && expLevel >= 2) {
+                    document.getElementById('purchase').classList.add('op0');
+                    setTimeout(()=>{
+                        document.getElementById('purchase').classList.add('hidden');
+                    },1000);
+                    localStorage.setItem('item2Purchased?', true);
+                    moneyCount -= 50;
                 }
-            }
-            save_data();
-            update_html();
-        } else if (selectedPurchasable == 4) {
-            if(moneyCount >= 50 && expLevel >= 4) {
-                document.getElementById('purchase').classList.add('op0');
-                setTimeout(()=>{
-                    document.getElementById('purchase').classList.add('hidden');
-                },1000);
-                localStorage.setItem('item4Purchased?', true);
-                moneyCount -= 50;
-            }
-            document.getElementById('fourth-item-image').style.opacity = 0.25;
-            document.getElementById('fourth-item-coin-icon').classList.add('hidden');
-            document.getElementById('fourth-item-price').innerHTML = 'Sold';
-            document.getElementById('fourth-item-price').style.opacity = 0.25;
-            for (let i = 1; i <= 4; i++) {
-                const slot = document.querySelector(`#inventory-slot-${i} img`);
-                if(slot.getAttribute('src') === 'Assets/img/null.png') {
-                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
-                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
-                    localStorage.setItem('fourthItemSlot', i);
-                    break;
+                document.getElementById('second-item-image').style.opacity = 0.25;
+                document.getElementById('second-item-coin-icon').classList.add('hidden');
+                document.getElementById('second-item-price').innerHTML = 'Sold';
+                document.getElementById('second-item-price').style.opacity = 0.25;
+                for (let i = 1; i <= 4; i++) {
+                    const slot = document.querySelector(`#inventory-slot-${i} img`);
+                    if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                        document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                        document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
+                        localStorage.setItem('secondItemSlot', i);
+                        break;
+                    }
                 }
+                save_data();
+                update_html();
+            } else if (selectedPurchasable == 3) {
+                if(moneyCount >= 200 && expLevel >= 3) {
+                    document.getElementById('purchase').classList.add('op0');
+                    setTimeout(()=>{
+                        document.getElementById('purchase').classList.add('hidden');
+                    },1000);
+                    localStorage.setItem('item3Purchased?', true);
+                    moneyCount -= 200;
+                }
+                document.getElementById('third-item-image').style.opacity = 0.25;
+                document.getElementById('third-item-coin-icon').classList.add('hidden');
+                document.getElementById('third-item-price').innerHTML = 'Sold';
+                document.getElementById('third-item-price').style.opacity = 0.25;
+                for (let i = 1; i <= 4; i++) {
+                    const slot = document.querySelector(`#inventory-slot-${i} img`);
+                    if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                        document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                        document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
+                        localStorage.setItem('thirdItemSlot', i);
+                        break;
+                    }
+                }
+                save_data();
+                update_html();
+            } else if (selectedPurchasable == 4) {
+                if(moneyCount >= 50 && expLevel >= 4) {
+                    document.getElementById('purchase').classList.add('op0');
+                    setTimeout(()=>{
+                        document.getElementById('purchase').classList.add('hidden');
+                    },1000);
+                    localStorage.setItem('item4Purchased?', true);
+                    moneyCount -= 50;
+                }
+                document.getElementById('fourth-item-image').style.opacity = 0.25;
+                document.getElementById('fourth-item-coin-icon').classList.add('hidden');
+                document.getElementById('fourth-item-price').innerHTML = 'Sold';
+                document.getElementById('fourth-item-price').style.opacity = 0.25;
+                for (let i = 1; i <= 4; i++) {
+                    const slot = document.querySelector(`#inventory-slot-${i} img`);
+                    if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                        document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                        document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
+                        localStorage.setItem('fourthItemSlot', i);
+                        break;
+                    }
+                }
+                save_data();
+                update_html();
             }
-            save_data();
-            update_html();
-        }
+    }
 }
 
 function showItem(slot) {
