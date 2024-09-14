@@ -32,7 +32,7 @@
         "desc": "I due antichi bardi custodiscono i segreti per riportare in vita il defunto re. Tuttavia, prima di svelarli, dovrai affrontare e superare le loro prove, dimostrando la tua conoscenza e saggezza.",
         "exp": 75,
         "coins": 75,
-        "progress": [{code:"plug in baby",task:"qual è il nome del brano ?"},{code:"californication",task:"qual è il nome del brano ?"},{code:"my own summer",task:"qual è il nome del brano ?"}],
+        "progress": [{code:"plug in baby",task:"qual è il nome del brano ?"},{code:"californication",task:"qual è il nome del brano ?"},{code:"master of puppets",task:"qual è il nome del brano ?"}],
         "unlock_npc": 2
       },
       {
