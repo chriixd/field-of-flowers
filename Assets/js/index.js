@@ -282,7 +282,7 @@ function purchasePopup(itemNo, itemName) {
 }
 
 function purchaseItem() {
-    if(getComputedStyle(document.querySelector('.purchase-button')) != '#808080') {
+    if(getComputedStyle(document.querySelector('.purchase-button')).backgroundColor != 'rgb(128, 128, 128)') {
         selectedPurchasable = localStorage.getItem('selectedPurchasable');
         expLevel =  parseInt(document.getElementById('exp-level').innerHTML);
         console.log(selectedPurchasable, expLevel);
