@@ -43,6 +43,11 @@ p, h1 {
     justify-content: center;
 }
 
+#money-container {
+    min-width: 20%;
+    max-width: 20%;
+}
+
 .progress-bar-container {
     height: 4px;
     width: 100%;
@@ -74,9 +79,10 @@ p, h1 {
     padding: 25px;
     margin: 0 0 20px 0;
     opacity: 1;
-    transition: opacity 0.5s linear;
+    transition: opacity 0.25s linear;
 }
 .quest-description{
+    font-weight: 400;
     margin-bottom: 20px;
 }
 .quest-title {
@@ -263,7 +269,16 @@ p, h1 {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-bottom: 45%;
+    padding-bottom: 40%;
+    padding-top: 30%;
+}
+
+.settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 40%;
     padding-top: 35%;
 }
 
@@ -354,7 +369,7 @@ div.completed div.quest-complete{
     height: 100vh;
     margin: 0;
     width: 100vw;
-   transition :opacity 2s ease,backdrop-filter 2s ease-in-out 
+   transition :opacity 2s ease, backdrop-filter 2s ease-in-out 
 }
 #hidden-popup-box{
     background-color: rgba(0, 0, 0, 0.6);
@@ -546,6 +561,10 @@ div.completed div.quest-complete{
     gap: 10px;
 }
 
+.shop-item {
+    width: 17.5%;
+}
+
 .item-price img {
     height: 15px;
     width: 15px;
@@ -635,7 +654,8 @@ div.completed div.quest-complete{
     align-items: center;
     position: fixed;
     z-index: 1000;
-    transition: opacity 1s ease-out, backdrop-filter 1s ease-out ;
+    backdrop-filter: blur(3px);
+    transition: opacity .5s ease-out, backdrop-filter .5s ease-out ;
     opacity: 1;
 }
 
@@ -682,4 +702,56 @@ div.completed div.quest-complete{
     background-color: #FF8A00;
     border-radius: 10px;
     padding: 15px 50px;
+}
+
+.purchase-button h1 {
+    font-weight: 600;
+}
+
+.item-description {
+    background-color: rgba(0, 0, 0, 0.685);
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    transition: opacity .5s ease-out, backdrop-filter .5s ease-out ;
+    opacity: 1;
+}
+
+.item-description-popup {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 85%;
+    border-radius: 30px;
+    border: 1px solid white;
+    background: #2C2522;
+    padding: 35px 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.item-description-popup h1 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.item-description-popup p {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: #CAC8C7;;
+}
+
+.item-description-popup img {
+    height: 55px;
+    background-color: #433833;
+    border-radius: 10px;
+    padding: 20px;
 }

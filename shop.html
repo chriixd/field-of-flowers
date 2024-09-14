@@ -17,14 +17,21 @@
 
 </head>
 <body>
-    <div class="purchase flex op0 hidden " id="purchase">
+    <div class="item-description flex op0 hidden" id="item-description">
+        <div class="item-description-popup flex">
+            <img src="null.png" alt="">
+            <h1>Item Name</h1>
+            <p>Item Description</p>
+        </div>
+    </div>
+    <div class="purchase flex op0 hidden" id="purchase">
         <div class="purchase-popup">
             <div class="purchase-popup-text ">
                 <h1 id="purchasable-item-name" style="text-align: center;">Item Name</h1>
                 <p id="purchasable-item-description" style="text-align: center;">Item Description</p>
             </div>
             <img id="purchasable-item-image" src="Assets/img/icons/mochi.png" alt="">
-            <div class="purchase-button">
+            <div class="purchase-button" onclick="purchaseItem()">
                 <h1 style="font-family: 'EB Garamond';">Acquista</h1>
             </div>
         </div>
@@ -62,37 +69,19 @@
             <div class="inventory-container flex">
                 <h1 id="inventory-title">Inventario</h1>
                 <div class="inventory-items flex">
-                    <div class="inventory-item flex hidden-item">
+                    <div id="inventory-slot-1" class="inventory-item flex hidden-item" onclick="showItem(1)">
                         <img src="Assets/img/null.png" alt="">
                         <p>1x</p>
                     </div>
-                    <div class="inventory-item flex hidden-item">
+                    <div id="inventory-slot-2" class="inventory-item flex hidden-item" onclick="showItem(2)">
                         <img src="Assets/img/null.png" alt="">
                         <p>1x</p>
                     </div>
-                    <div class="inventory-item flex hidden-item">
+                    <div id="inventory-slot-3" class="inventory-item flex hidden-item" onclick="showItem(3)">
                         <img src="Assets/img/null.png" alt="">
                         <p>1x</p>
                     </div>
-                    <div class="inventory-item flex hidden-item">
-                        <img src="Assets/img/null.png" alt="">
-                        <p>1x</p>
-                    </div>
-                </div>
-                <div class="inventory-items flex">
-                    <div class="inventory-item flex hidden-item">
-                        <img src="Assets/img/null.png" alt="">
-                        <p>1x</p>
-                    </div>
-                    <div class="inventory-item flex hidden-item">
-                        <img src="Assets/img/null.png" alt="">
-                        <p>1x</p>
-                    </div>
-                    <div class="inventory-item flex hidden-item">
-                        <img src="Assets/img/null.png" alt="">
-                        <p>1x</p>
-                    </div>
-                    <div class="inventory-item flex hidden-item">
+                    <div id="inventory-slot-4" class="inventory-item flex hidden-item" onclick="showItem(4)">
                         <img src="Assets/img/null.png" alt="">
                         <p>1x</p>
                     </div>
@@ -102,44 +91,44 @@
         <div class="shop-container flex">
             <h1 id="shop-title">Negozio</h1>
             <div class="inventory-items flex">
-                <div class="inventory-item flex" onclick="purchasePopup(1, 'forchetta')">
-                    <img src="Assets/img/icons/forchetta.png" alt="">
+                <div class="inventory-item shop-item flex" onclick="purchasePopup(1, 'forchetta')">
+                    <img id="first-item-image" src="Assets/img/icons/forchetta.png" alt="">
                     <span class="item-price flex">
-                        <img src="Assets/img/icons/coin.png" alt="">
-                        <p>100</p>
+                        <img id="first-item-coin-icon" src="Assets/img/icons/coin.png" alt="">
+                        <p id="first-item-price">100</p>
                     </span>
                 </div>
-                <div class="inventory-item flex" onclick="purchasePopup(2, 'sasso')">
-                    <img src="Assets/img/icons/sasso.png" alt="">
+                <div class="inventory-item shop-item flex" onclick="purchasePopup(2, 'sasso')">
+                    <img id="second-item-image" src="Assets/img/icons/sasso.png" alt="">
                     <span class="item-price flex">
-                        <img src="Assets/img/icons/coin.png" alt="">
-                        <p>50</p>
+                        <img id="second-item-coin-icon" src="Assets/img/icons/coin.png" alt="">
+                        <p id="second-item-price">50</p>
                     </span>
                 </div>
-                <div class="inventory-item flex" onclick="purchasePopup(3, 'old-coin')">
-                    <img src="Assets/img/icons/old-coin.png" alt="">
+                <div class="inventory-item shop-item flex" onclick="purchasePopup(3, 'old-coin')">
+                    <img id="third-item-image" src="Assets/img/icons/old-coin.png" alt="">
                     <span class="item-price flex">
-                        <img src="Assets/img/icons/coin.png" alt="">
-                        <p>200</p>
+                        <img id="third-item-coin-icon" src="Assets/img/icons/coin.png" alt="">
+                        <p id="third-item-price">200</p>
                     </span>
                 </div>
             </div>
             <div class="inventory-items flex">
-                <div class="inventory-item flex " onclick="purchasePopup(4, 'mochi')">
-                    <img src="Assets/img/icons/mochi.png" alt="">
+                <div class="inventory-item shop-item flex " onclick="purchasePopup(4, 'mochi')">
+                    <img id="fourth-item-image" src="Assets/img/icons/mochi.png" alt="">
                     <span class="item-price flex">
-                        <img src="Assets/img/icons/coin.png" alt="">
-                        <p>50</p>
+                        <img id="fourth-item-coin-icon" src="Assets/img/icons/coin.png" alt="">
+                        <p id="fourth-item-price">50</p>
                     </span>
                 </div>
-                <div class="inventory-item flex" style="background-color: #211C19;" >
+                <div class="inventory-item shop-item flex" style="background-color: #211C19;" >
                     <img src="Assets/img/null.png" alt="">
                     <span class="item-price flex" style="opacity: 0;">
                         <img src="Assets/img/icons/coin.png" alt="">
                         <p>300</p>
                     </span>
                 </div>
-                <div class="inventory-item flex" style="background-color: #211C19;">
+                <div class="inventory-item shop-item flex" style="background-color: #211C19;">
                     <img src="Assets/img/null.png" alt="">
                     <span class="item-price flex" style="opacity: 0;">
                         <img src="Assets/img/icons/coin.png" alt="">

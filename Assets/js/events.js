@@ -35,8 +35,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(()=>{
                     document.getElementById('purchase').classList.add('hidden');
                 },1000);
-                update_html();
-                
+                update_html();                
+            }
+        });
+     }
+     if(document.title=="Shop"){
+        document.querySelector(".item-description").addEventListener("click",(ev)=>{
+            if (ev.target === document.getElementById("item-description")){
+                document.getElementById("item-description").classList.add('op0');
+                setTimeout(()=>{
+                    document.getElementById("item-description").classList.add('hidden');
+                },1000);
+                update_html();                
             }
         });
      }

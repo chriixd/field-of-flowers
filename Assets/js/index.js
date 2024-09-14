@@ -94,19 +94,47 @@ async function update_html(levelUp = false,end = false) {
     
     }
     if(document.title=="Shop"){
-        var invCount = 0;
-        document.querySelector(".shop-container").querySelectorAll(".inventory-item").forEach((el,i,arr)=>{
-            if(shop_acquired[i]==1){
-                document.querySelector(".shop-container").querySelectorAll(".inventory-item")[i].classList.add("hidden-item");
-                document.querySelector(".inventory-container").querySelectorAll(".inventory-item")[invCount]
-                invCount++;
-            }
-        });
-
+        isFirstPurchased = localStorage.getItem('item1Purchased?');
+        isSecondPurchased = localStorage.getItem('item2Purchased?');
+        isThirdPurchased = localStorage.getItem('item3Purchased?');
+        isFourthPurchased = localStorage.getItem('item4Purchased?');
+        if(isFirstPurchased) {
+            firstItemSlot = localStorage.getItem('firstItemSlot');
+            document.getElementById('first-item-image').style.opacity = 0.25;
+            document.getElementById('first-item-coin-icon').classList.add('hidden');
+            document.getElementById('first-item-price').innerHTML = 'Sold';
+            document.getElementById('first-item-price').style.opacity = 0.25;
+            document.getElementById(`inventory-slot-${firstItemSlot}`).classList.remove('hidden-item');
+            document.querySelector(`#inventory-slot-${firstItemSlot} img`).src = 'Assets/img/icons/forchetta.png';
+        }
+        if(isSecondPurchased) {
+            secondItemSlot = localStorage.getItem('secondItemSlot');
+            document.getElementById('second-item-image').style.opacity = 0.25;
+            document.getElementById('second-item-coin-icon').classList.add('hidden');
+            document.getElementById('second-item-price').innerHTML = 'Sold';
+            document.getElementById('second-item-price').style.opacity = 0.25;
+            document.getElementById(`inventory-slot-${secondItemSlot}`).classList.remove('hidden-item');
+            document.querySelector(`#inventory-slot-${secondItemSlot} img`).src = 'Assets/img/icons/sasso.png';
+        }
+        if(isThirdPurchased) {
+            thirdItemSlot = localStorage.getItem('thirdItemSlot');
+            document.getElementById('third-item-image').style.opacity = 0.25;
+            document.getElementById('third-item-coin-icon').classList.add('hidden');
+            document.getElementById('third-item-price').innerHTML = 'Sold';
+            document.getElementById('third-item-price').style.opacity = 0.25;
+            document.getElementById(`inventory-slot-${thirdItemSlot}`).classList.remove('hidden-item');
+            document.querySelector(`#inventory-slot-${thirdItemSlot} img`).src = 'Assets/img/icons/old-coin.png';
+        }
+        if(isFourthPurchased) {
+            fourthItemSlot = localStorage.getItem('fourthItemSlot');
+            document.getElementById('fourth-item-image').style.opacity = 0.25;
+            document.getElementById('fourth-item-coin-icon').classList.add('hidden');
+            document.getElementById('fourth-item-price').innerHTML = 'Sold';
+            document.getElementById('fourth-item-price').style.opacity = 0.25;
+            document.getElementById(`inventory-slot-${fourthItemSlot}`).classList.remove('hidden-item');
+            document.querySelector(`#inventory-slot-${fourthItemSlot} img`).src = 'Assets/img/icons/mochi.png';
+        }
     }
-
-        
-
 }
 
 function save_data(){
@@ -166,41 +194,219 @@ function startGame() {
     },2000);
 }
 
-
 function purchasePopup(itemNo, itemName) {
-    document.getElementById('purchase').classList.remove('hidden');
-    setTimeout(() => {
-        document.getElementById('purchase').classList.remove('op0')
-    }, 10);
-    opened_item = itemNo-1;
     save_data();
+    expLevel = parseInt(document.getElementById('exp-level').innerHTML);
     switch(itemNo) {
         case 1:
-            console.log('selected item no.1');
-
-            document.getElementById('purchasable-item-name').innerHTML = 'Forchetta della Danza Irresistibile';
-            document.getElementById('purchasable-item-description').innerHTML = 'Questa forchetta di argento, decorata con rune intricate, emana una magia caotica. Chiunque venga colpito dalle sue punte è costretto a ballare freneticamente per un minuto, incapace di fermarsi. La danza varia tra movimenti caotici e graziose piroette, a seconda della vittima.';
-            document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            if(!localStorage.getItem('item1Purchased?')) {
+                document.getElementById('purchase').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('purchase').classList.remove('op0')
+                }, 10);
+                opened_item = itemNo-1;
+                console.log('selected item no.1');
+                document.getElementById('purchasable-item-name').innerHTML = 'Forchetta della Danza Irresistibile';
+                document.getElementById('purchasable-item-description').innerHTML = 'Questa forchetta di argento, decorata con rune intricate, emana una magia caotica. Chiunque venga colpito dalle sue punte è costretto a ballare freneticamente per un minuto, incapace di fermarsi. La danza varia tra movimenti caotici e graziose piroette, a seconda della vittima.';
+                document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+                localStorage.setItem('selectedPurchasable', 1);
+            }
             break;
         case 2:
-            console.log('selected item no.2');
-            document.getElementById('purchasable-item-name').innerHTML = 'Sasso del Potere';
-            document.getElementById('purchasable-item-description').innerHTML = 'Questo ciottolo bianco ha una abilità unica: dopo aver rivelato la tua mano in una partita di carta, forbice, sasso, trasforma magicamente la tua scelta in sasso. Discreto e rapido, offre un vantaggio sorprendente, confondendo gli avversari.';
-            document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            if(!localStorage.getItem('item2Purchased?')) {
+                document.getElementById('purchase').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('purchase').classList.remove('op0')
+                }, 10);
+                opened_item = itemNo-1;
+                console.log('selected item no.2');
+                document.getElementById('purchasable-item-name').innerHTML = 'Sasso del Potere';
+                document.getElementById('purchasable-item-description').innerHTML = 'Questo ciottolo bianco ha una abilità unica: dopo aver rivelato la tua mano in una partita di carta, forbice, sasso, trasforma magicamente la tua scelta in sasso. Discreto e rapido, offre un vantaggio sorprendente, confondendo gli avversari.';
+                document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+                localStorage.setItem('selectedPurchasable', 2);
+                if(moneyCount < 50) {
+                    document.querySelector('.purchase-button').style.backgroundColor = '#808080';
+                    document.querySelector('.purchase-button h1').innerHTML = 'Fondi Insufficienti!'
+                }
+                if(expLevel < 2) {
+                    document.querySelector('.purchase-button').style.backgroundColor = '#808080';
+                    document.querySelector('.purchase-button h1').innerHTML = 'Livello troppo Basso!'
+                }
+            }
             break;
         case 3:
-            console.log('selected item no.3');
-            document.getElementById('purchasable-item-name').innerHTML = 'Moneta del Destino';
-            document.getElementById('purchasable-item-description').innerHTML = 'La Moneta del Destino offre un potere semplice ma straordinario: dichiarando "testa" o "croce" e lanciandola, se indovini, acquisisci immediatamente la risposta a una domanda. Tuttavia, fallire ti lascerà nel dubbio fino a quando non scoprirai la verità da solo.';
-                        document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            if(!localStorage.getItem('item3Purchased?')) {
+                document.getElementById('purchase').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('purchase').classList.remove('op0')
+                }, 10);
+                opened_item = itemNo-1;
+                console.log('selected item no.3');
+                document.getElementById('purchasable-item-name').innerHTML = 'Moneta del Destino';
+                document.getElementById('purchasable-item-description').innerHTML = 'La Moneta del Destino offre un potere semplice ma straordinario: dichiarando "testa" o "croce" e lanciandola, se indovini, acquisisci immediatamente la risposta a una domanda. Tuttavia, fallire ti lascerà nel dubbio fino a quando non scoprirai la verità da solo.';
+                document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+                localStorage.setItem('selectedPurchasable', 3);
+                if(moneyCount < 200) {
+                    document.querySelector('.purchase-button').style.backgroundColor = '#808080';
+                    document.querySelector('.purchase-button h1').innerHTML = 'Fondi Insufficienti!'
+                }
+                if(expLevel < 3) {
+                    document.querySelector('.purchase-button').style.backgroundColor = '#808080';
+                    document.querySelector('.purchase-button h1').innerHTML = 'Livello troppo Basso!'
+                }
+            }
             break;
         case 4:
-            console.log('selected item no.4');
-            document.getElementById('purchasable-item-name').innerHTML = 'Mochi della Saggezza';
-            document.getElementById('purchasable-item-description').innerHTML = 'Questo mochi pare davvero prelibato.';
-                        document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+            if(!localStorage.getItem('item4Purchased?')) {
+                document.getElementById('purchase').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('purchase').classList.remove('op0')
+                }, 10);
+                opened_item = itemNo-1;
+                console.log('selected item no.4');
+                document.getElementById('purchasable-item-name').innerHTML = 'Mochi della Saggezza';
+                document.getElementById('purchasable-item-description').innerHTML = 'Questo mochi pare davvero prelibato.';
+                document.getElementById('purchasable-item-image').src = 'Assets/img/icons/' + itemName + '.png'
+                localStorage.setItem('selectedPurchasable', 4);
+                if(moneyCount < 50) {
+                    document.querySelector('.purchase-button').style.backgroundColor = '#808080';
+                    document.querySelector('.purchase-button h1').innerHTML = 'Fondi Insufficienti!'
+                }
+                if(expLevel < 4) {
+                    document.querySelector('.purchase-button').style.backgroundColor = '#808080';
+                    document.querySelector('.purchase-button h1').innerHTML = 'Livello troppo Basso!'
+                }
+            }
             break;
     }
+}
+
+function purchaseItem() {
+    selectedPurchasable = localStorage.getItem('selectedPurchasable');
+    expLevel =  parseInt(document.getElementById('exp-level').innerHTML);
+    console.log(selectedPurchasable, expLevel);
+        if (selectedPurchasable == 1) {
+            if(moneyCount >= 100 && expLevel >= 1) {
+                document.getElementById('purchase').classList.add('op0');
+                setTimeout(()=>{
+                    document.getElementById('purchase').classList.add('hidden');
+                },1000);
+                localStorage.setItem('item1Purchased?', true);
+                moneyCount -= 100;
+            }
+            document.getElementById('first-item-image').style.opacity = 0.25;
+            document.getElementById('first-item-coin-icon').classList.add('hidden');
+            document.getElementById('first-item-price').innerHTML = 'Sold';
+            document.getElementById('first-item-price').style.opacity = 0.25;
+            for (let i = 1; i <= 4; i++) {
+                const slot = document.querySelector(`#inventory-slot-${i} img`);
+                if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/forchetta.png';
+                    localStorage.setItem('firstItemSlot', i);
+                    break;
+                }
+            }
+            save_data();
+            update_html();
+        } else if (selectedPurchasable == 2) {
+            if(moneyCount >= 50 && expLevel >= 2) {
+                document.getElementById('purchase').classList.add('op0');
+                setTimeout(()=>{
+                    document.getElementById('purchase').classList.add('hidden');
+                },1000);
+                localStorage.setItem('item2Purchased?', true);
+                moneyCount -= 50;
+            }
+            document.getElementById('second-item-image').style.opacity = 0.25;
+            document.getElementById('second-item-coin-icon').classList.add('hidden');
+            document.getElementById('second-item-price').innerHTML = 'Sold';
+            document.getElementById('second-item-price').style.opacity = 0.25;
+            for (let i = 1; i <= 4; i++) {
+                const slot = document.querySelector(`#inventory-slot-${i} img`);
+                if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
+                    localStorage.setItem('secondItemSlot', i);
+                    break;
+                }
+            }
+            save_data();
+            update_html();
+        } else if (selectedPurchasable == 3) {
+            if(moneyCount >= 200 && expLevel >= 3) {
+                document.getElementById('purchase').classList.add('op0');
+                setTimeout(()=>{
+                    document.getElementById('purchase').classList.add('hidden');
+                },1000);
+                localStorage.setItem('item3Purchased?', true);
+                moneyCount -= 200;
+            }
+            document.getElementById('third-item-image').style.opacity = 0.25;
+            document.getElementById('third-item-coin-icon').classList.add('hidden');
+            document.getElementById('third-item-price').innerHTML = 'Sold';
+            document.getElementById('third-item-price').style.opacity = 0.25;
+            for (let i = 1; i <= 4; i++) {
+                const slot = document.querySelector(`#inventory-slot-${i} img`);
+                if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
+                    localStorage.setItem('thirdItemSlot', i);
+                    break;
+                }
+            }
+            save_data();
+            update_html();
+        } else if (selectedPurchasable == 4) {
+            if(moneyCount >= 50 && expLevel >= 4) {
+                document.getElementById('purchase').classList.add('op0');
+                setTimeout(()=>{
+                    document.getElementById('purchase').classList.add('hidden');
+                },1000);
+                localStorage.setItem('item4Purchased?', true);
+                moneyCount -= 50;
+            }
+            document.getElementById('fourth-item-image').style.opacity = 0.25;
+            document.getElementById('fourth-item-coin-icon').classList.add('hidden');
+            document.getElementById('fourth-item-price').innerHTML = 'Sold';
+            document.getElementById('fourth-item-price').style.opacity = 0.25;
+            for (let i = 1; i <= 4; i++) {
+                const slot = document.querySelector(`#inventory-slot-${i} img`);
+                if(slot.getAttribute('src') === 'Assets/img/null.png') {
+                    document.getElementById(`inventory-slot-${i}`).classList.remove('hidden-item');
+                    document.querySelector(`#inventory-slot-${i} img`).src = 'Assets/img/icons/sasso.png';
+                    localStorage.setItem('fourthItemSlot', i);
+                    break;
+                }
+            }
+            save_data();
+            update_html();
+        }
+}
+
+function showItem(slot) {
+    let itemImageName = document.querySelector(`#inventory-slot-${slot} img`).src;
+    let itemImageNameSubstr = itemImageName.substr(itemImageName.length - 5);
+    if(itemImageNameSubstr != 'l.png') {
+        document.getElementById('item-description').classList.remove('hidden');
+        setTimeout(() => {
+            document.getElementById('item-description').classList.remove('op0')
+        }, 10);
+        document.querySelector('.item-description-popup img').src = document.querySelector(`#inventory-slot-${slot} img`).src;
+        if(itemImageNameSubstr == 'a.png') {
+            document.querySelector('.item-description-popup h1').innerHTML = 'Forchetta della Danza Irresistibile ';
+            document.querySelector('.item-description-popup p').innerHTML = 'Questa forchetta di argento, decorata con rune intricate, emana una magia caotica. Chiunque venga colpito dalle sue punte è costretto a ballare freneticamente per un minuto, incapace di fermarsi. La danza varia tra movimenti caotici e graziose piroette, a seconda della vittima.';
+        } else if(itemImageNameSubstr == 'o.png') {
+            document.querySelector('.item-description-popup h1').innerHTML = 'Sasso del Potere';
+            document.querySelector('.item-description-popup p').innerHTML = 'Questo ciottolo bianco ha una abilità unica: dopo aver rivelato la tua mano in una partita di carta, forbice, sasso, trasforma magicamente la tua scelta in sasso. Discreto e rapido, offre un vantaggio sorprendente, confondendo gli avversari.';
+        } else if(itemImageNameSubstr == 'n.png') {
+            document.querySelector('.item-description-popup h1').innerHTML = 'Moneta del Destino';
+            document.querySelector('.item-description-popup p').innerHTML = 'La Moneta del Destino offre un potere semplice ma straordinario: dichiarando "testa" o "croce" e lanciandola, se indovini, acquisisci immediatamente la risposta a una domanda. Tuttavia, fallire ti lascerà nel dubbio fino a quando non scoprirai la verità da solo.';
+        } else if(itemImageNameSubstr == 'i.png') {
+            document.querySelector('.item-description-popup h1').innerHTML = 'Mochi della Saggezza';
+            document.querySelector('.item-description-popup p').innerHTML = 'Questo mochi pare davvero prelibato.';
+        };
+    };
 }
 
 document.addEventListener("DOMContentLoaded", function() {
