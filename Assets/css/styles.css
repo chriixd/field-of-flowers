@@ -425,6 +425,7 @@ div.completed div.quest-complete{
     color:white;
     font-weight: 600;
     font-size: 18pt;
+    margin-bottom: 35px;
 }
 
 .hide-popup {

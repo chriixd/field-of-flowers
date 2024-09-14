@@ -68,9 +68,7 @@ async function update_html(levelUp = false,end = false) {
             document.getElementsByClassName('quest-progress')[gameProgress].innerHTML = currentProgress;
             await document.getElementById('quests-container').classList.remove("no-animation");
 
-            if(end){
-                    
-            }
+
 
             // gestione animazioni
             
@@ -86,10 +84,13 @@ async function update_html(levelUp = false,end = false) {
                 document.getElementById('introduction-text').classList.add('hidden');
             },1000);
         }
-            if(localStorage.getItem("new-quest")=='true'){
+            if(localStorage.getItem("new-quest")=='true' && !end){
                 completed_quest_animation(gameProgress);
             }
             if(levelUp) {levelUp_animation();}
+        }
+        if(end){
+            //show_popup_box("Congratulazioni!","Finalmente, dopo anni di attesa e speranza, il Re è stato riportato in vita, e il suo tesoro perduto, nascosto nelle ombre del tempo, è stato ritrovato. Che questa spada, forgiata nel fuoco del destino e temprata dal coraggio dei valorosi, possa guidarti nel lungo cammino che ti attende. Che la sua lama risplenda nelle tenebre e ti conduca alla vittoria",false);
         }
     
     }

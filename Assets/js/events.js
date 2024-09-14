@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         document.querySelectorAll(".quest-complete").forEach(element=>{
                 element.addEventListener('click',(ev)=>{
-                        show_popup_box("Inserisci il codice",quests[gameProgress].progress[currentProgress].task,true);
+                        show_popup_box(quests[gameProgress].title,quests[gameProgress].progress[currentProgress].task,true);
+                        
                 });
         });
         document.querySelectorAll(".code-button").forEach(element=>{
