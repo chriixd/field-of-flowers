@@ -48,7 +48,7 @@
         "desc": "<i>La sua anima un tempo infiammata,<br />Ora in silenzio è incatenata.<br />Nel cuore di un oggetto antico,Riposano fiamme di un vecchio amico.</br>Non più calore, non più tormento,<br /> Solo un ricordo nel freddo vento. <br />La sua anima, che tanto ha lottato,<br />Ora riposa, finalmente calmato.<br /></i>In questo luogo, tra le varie corsie, si nasconde un oggetto capace di estinguere persino la fiamma più feroce. La sua superficie cremisi porta inciso un antico numero, il quale, se pronunciato secondo il rituale corretto, farà risorgere il Re defunto.",
         "exp": 25,
         "coins": 100,
-        "progress": [{code:"0",task:"Qual é l'antico numero necessario per riportare in vita il Re ?"}],
+        "progress": [{code:"004",task:"Qual é l'antico numero necessario per riportare in vita il Re ?"}],
         "unlock_npc": 2
       },
       {
